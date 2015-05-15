@@ -1,15 +1,29 @@
 {
   "type": "kendo-ui-mobile",
-  "isNew": true,
+  "name": "kendoUiMobileApp",
+  "navigation": "tabstrip",
+  "views": [
+    {
+      "type": "view",
+      "name": "home",
+      "title": "Home",
+      "addToNavigation": true,
+      "components": [],
+      "icon": "home"
+    }
+  ],
+  "view": "home",
+  "skin": "flat",
   "dataProviders": [
     {
       "type": "dataProvider",
-      "title": "DefaultProvider",
       "name": "defaultProvider",
+      "title": "DefaultProvider",
       "source": "everlive",
+      "everliveUrl": "",
       "offlineStorage": true,
-      "everliveKey": "Hro5ZCMacvvdbWuA",
-      "everliveUrl": ""
+      "everliveKey": "Hro5ZCMacvvdbWuA"
     }
-  ]
+  ],
+  "transition": "slide"
 }

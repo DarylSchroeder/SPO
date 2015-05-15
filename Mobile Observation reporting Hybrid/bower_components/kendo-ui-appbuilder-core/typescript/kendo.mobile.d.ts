@@ -619,14 +619,14 @@ declare module kendo.data {
         init(data?: any): void;
 
         id: any;
-        parentId: number;
-        orderId: number;
-        title: string;
-        start: Date;
-        end: Date;
-        percentComplete: number;
-        summary: boolean;
-        expanded: boolean;
+		parentId: number;
+		orderId: number;
+		title: string;
+		start: Date;
+		end: Date;
+		percentComplete: number;
+		summary: boolean;
+		expanded: boolean;
         static idField: string;
         static fields: DataSourceSchemaModelFields;
         static define(options: DataSourceSchemaModelWithFieldsObject): typeof GanttTask;
@@ -638,9 +638,9 @@ declare module kendo.data {
         init(data?: any): void;
 
         id: any;
-        predecessorId: number;
-        successorId: number;
-        type: number;
+		predecessorId: number;
+		successorId: number;
+		type: number;
         static idField: string;
         static fields: DataSourceSchemaModelFields;
         static define(options: DataSourceSchemaModelWithFieldsObject): typeof GanttDependency;
