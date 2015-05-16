@@ -3,11 +3,23 @@
 </div>
 <!-- this is the template used by the listview. template items are automatically
      wrapped in an <li> by Kendo UI Mobile -->
-<script type="text/x-kendo-template" id="pbs-template">
+<!--<script type="text/x-kendo-template" id="pbs-template">
     <a data-bind="click: details_pbs">
         <div>
             <div class="Header2" data-bind="text: Name"></div>
             <div class="SubItem" data-bind="text: Type"></div>
         </div>
+        
+    </a>
+</script>-->
+
+<script type="text/x-kendo-template" id="pbs-template">
+    <a data-bind="click: details_pbs">
+        <div>        
+        	<img data-bind="attr: {src:Icon_URL}" id="logo" class="listViewIcon" onerror="if (this.src != './Images/defaultPBS.png') this.src = './Images/defaultPBS.png';"/>            
+            <div class="listViewTextMain" data-bind="text: Name"></div>
+            <div class="listViewTextSub" data-bind="text: Type"></div>
+        </div>
+        
     </a>
 </script>

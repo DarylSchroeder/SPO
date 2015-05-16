@@ -1,5 +1,21 @@
 .km-drawer-button:before, .km-drawer-button:after  { content: "\E077"; }
 
+img.listViewIcon
+{
+    width: 32px;
+    float: left;
+    height: 32px;
+}
+div.listViewTextMain
+{
+    font-weight: bold;
+    margin-left:40px;
+}
+div.listViewTextSub
+{
+    font-size:75%;
+    margin-left:40px;
+}
 div
 {
     color:white;
