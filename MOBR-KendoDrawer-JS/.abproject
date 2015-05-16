@@ -5,7 +5,7 @@
   "AppIdentifier": "com.telerik.MOBRKendoDrawerJS",
   "DisplayName": "MOBR-KendoDrawer-JS",
   "Author": "",
-  "Description": "",
+  "Description": "MOBR-KendoDrawer-JS",
   "BundleVersion": "1.0",
   "AndroidVersionCode": "1",
   "iOSDeviceFamily": [
@@ -41,5 +41,8 @@
     "ID_RESOLUTION_WVGA",
     "ID_RESOLUTION_WXGA",
     "ID_RESOLUTION_HD720P"
+  ],
+  "CorePlugins": [
+    "com.wikitude.phonegap.WikitudePlugin@v4.1.0-3.1.0"
   ]
 }

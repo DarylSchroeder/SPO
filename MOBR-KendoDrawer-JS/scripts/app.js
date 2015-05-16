@@ -5,6 +5,9 @@
     // later on so that we can use it if need be
     var app;
 
+		
+    var apiKey = "Hro5ZCMacvvdbWuA";
+    var el = new Everlive(apiKey);
     // create an object to store the models for each view
     window.APP = {
       models: {
@@ -14,18 +17,30 @@
         settings: {
           title: 'Settings'
         },
-        contacts: {
-          title: 'Contacts',
+        pbs: {
+          title: 'PBS',
           ds: new kendo.data.DataSource({
-            data: [{ id: 1, name: 'Bob' }, { id: 2, name: 'Mary' }, { id: 3, name: 'John' }]
-          }),
+              
+                transport: {
+                    read: {
+                        url: "https://api.everlive.com/v1/" + apiKey + "/PBSLevel",
+                        dataType: "jsonp"
+                    }
+                },
+                schema: {
+                    data: function (response) {
+                        return response.Result;
+                    }
+                }
+            }),
           alert: function(e) {
-            alert(e.data.name);
+            alert(e.data.Name);
           }
         }
       }
     };
-
+    
+    
     // this function is called by Cordova when the application is loaded by the device
     document.addEventListener('deviceready', function () {  
       
@@ -37,7 +52,7 @@
         
         // comment out the following line to get a UI which matches the look
         // and feel of the operating system
-        skin: 'flat',
+        skin: 'native',
 
         // the application needs to know which view to load first
         initial: 'views/home.html'
