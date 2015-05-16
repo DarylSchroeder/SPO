@@ -1,0 +1,16 @@
+<div data-role="view" data-title="Plant Breakdown" data-layout="main" data-model="APP.models.pbs" id="grad">
+    <ul data-role="listview" data-style="inset" data-template="pbs-template" data-bind="source: ds"></ul>
+</div>
+<!-- this is the template used by the listview. template items are automatically
+     wrapped in an <li> by Kendo UI Mobile -->
+<script type="text/x-kendo-template" id="pbs-template">
+    <!---<a data-bind="click: details_pbs">#: data.Name #</a>-->
+    <a data-bind="click: details_pbs" data-icon="settings">
+        <div>
+        	<div class="Header2" data-bind="text: Name"></div>
+       		<div class="SubItem" data-bind="text: Type" ></div>       
+            <div data-style="button" 
+    	</div>
+    
+    </a>
+</script>

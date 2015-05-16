@@ -1,0 +1,46 @@
+body {
+}
+.km-drawer-button:before, .km-drawer-button:after  { content: "\E077"; }
+
+div
+{
+    color:white;
+}
+
+div.Header1
+{
+    font-size: 250%;
+    font-weight: bold;
+}
+
+div.Header2
+{
+    font-size: 150%;
+    font-weight: bold;
+}
+
+div.SubItem
+{
+    font-size:75%;
+    font-style:italic;
+}
+
+#grad
+{ 
+    background:  linear-gradient(to bottom, rgba(43,72,74,1) 0%, rgba(3,3,2,1) 100%);
+}
+
+#appDrawer
+{ 
+    background:  linear-gradient(to bottom, rgba(43,72,74,1) 0%, rgba(3,3,2,1) 100%);
+}
+
+span.pageTitle
+{
+    color:white;
+}
+
+a:link
+{
+    color:white;
+}
