@@ -1,5 +1,24 @@
-<div data-role="view" data-title="Details" data-layout="main" data-model="SelectedPBS" data-show="PBSItemDetail.show">
+<div data-role="view" data-title="Details" data-layout="main" data-model="pbsItem"  data-reload="true" data-show="PBSItemDetail.show">
 
-  <div class="Header1" data-bind="text: Name"></div>  
-  <div class="Header2" data-bind="text: Type"></div>
+    <div id="pbsItemContent">
+        
+        <div class="Header1" data-bind="text: name"></div>  
+        <div class="Header2">Type</div>
+        <div class="SubItem" data-bind="text: type"></div>
+        <div class="Header2">Tags</div>
+        <ul data-role="listview" data-style="inset" data-template="tag-template" data-bind="source: pbsItemTags"></ul>
+    </div>
+    
 </div>
+
+
+<script type="text/x-kendo-template" id="tag-template">
+
+    <a data-bind="click: details_tag">
+        <div>
+        	<div class="Header2" data-bind="text: Name"></div>
+       		<div class="SubItem" data-bind="text: Classification" ></div>    
+    	</div>
+    
+    </a>
+</script>

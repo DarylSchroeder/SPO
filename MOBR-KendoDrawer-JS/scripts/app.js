@@ -1,4 +1,7 @@
 var currentTheme = "glacier";
+var SelectedPBS;
+var apiKey = "Hro5ZCMacvvdbWuA";
+var el = new Everlive(apiKey);    
 
 function toggleTheme() {
     var themes = ["glacier", "shadow"];
@@ -21,8 +24,6 @@ function toggleTheme() {
     var app;
 
 
-    var apiKey = "Hro5ZCMacvvdbWuA";
-    var el = new Everlive(apiKey);
     // create an object to store the models for each view
     window.APP = {
         models: {
@@ -47,9 +48,11 @@ function toggleTheme() {
                         }
                     }
                 }),
+                
                 details_pbs: function (e) {
-                    app.navigate("views/pbsItemDetails.html", "slide");
                     SelectedPBS = e.data;
+                    app.navigate("views/pbsItemDetails.html", "slide");
+                    
                 }
             }
         }
