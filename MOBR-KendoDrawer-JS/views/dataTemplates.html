@@ -1,16 +1,3 @@
-<div data-role="view" data-title="Details" data-layout="main" data-reload="true" data-show="showPBSItemDetail">
-    <div id="pbsItemContent">
-        <div class="Header1" data-bind="text: name"></div>
-        <div class="Header2">Type</div>
-        <div class="SubItem" data-bind="text: type"></div>
-        <div class="Header2">Tags</div>
-        <ul data-role="listview" data-style="inset" data-template="tag-template" data-bind="source: pbsItemTags"></ul>
-        <div class="Header2">Children</div>
-        <ul data-role="listview" data-style="inset" data-template="pbs-template" data-bind="source: children "></ul>
-    </div>
-</div>
-
-
 
 <script type="text/x-kendo-template" id="pbs-template">
     <a data-bind="click: details_pbs">

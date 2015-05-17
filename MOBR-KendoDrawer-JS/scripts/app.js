@@ -51,7 +51,7 @@ function toggleTheme() {
                     }
                 }),
                 
-                details_pbs: function (e) {
+                details_pbs: function (e) {                    
                     SelectedPBS = e.data;
                     app.navigate("views/pbsItemDetails.html", "slide");
                     
