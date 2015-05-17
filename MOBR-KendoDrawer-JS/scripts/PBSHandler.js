@@ -1,93 +1,50 @@
-function showPBSItemDetail() {
-        //TODO: use callbacks here so we can make sure the data is fully set before we bind.
+//var pbsItem;
+function setTagValues(callback) {
+    //alert("set values");
 
-        console.log("TRACE: [PBSItemDetail.show] Enter");
+    // -- build up the query for tags -- 
+    var expandTags = {
+        "PBSItemTag": true
+    };
+    var queryTags = new Everlive.Query();
+    queryTags.expand(expandTags);
+    var data = el.data("PBSLevel");
 
-        // -- build up the query for tags -- 
-        var expandTags = {
-            "PBSItemTag": true
-        };
-        var queryTags = new Everlive.Query();
-        queryTags.expand(expandTags);
-        var data = el.data("PBSLevel");
+    // -- execute the query --
+    console.log("pbsid=" + SelectedPBS.Id);
+    data.expand(expandTags).getById(SelectedPBS.Id)
+        .then(function (data) {
+                tagObjets = data.result.PBSItemTag; //JSON.parse(retrievedObject);
 
-        // -- execute the query --
-        console.log("pbsid=" + SelectedPBS.Id);
-        data.expand(expandTags).getById(SelectedPBS.Id)
-            .then(function (data) {
-                    tagObjets = data.result.PBSItemTag; //JSON.parse(retrievedObject);
+                //set icon for all objects -- probably be a better way to do this... 
+                for (var i = 0; i < tagObjets.length; i++) {
+                    tagObjets[i].Icon_URL = "./Images/" + tagObjets[i].Classification + ".png";
+                };
 
-                    //set icon for all objects -- probably be a better way to do this... 
-                    for (var i = 0; i < tagObjets.length; i++) {
-                        tagObjets[i].Icon_URL = "./Images/" + tagObjets[i].Classification + ".png";
-                    };
+                // create the item for binding purposes. 
+                pbsItem =
+                    ({
+                        name: SelectedPBS.Name,
+                        type: SelectedPBS.Type,
+                        Icon_URL: "./Images/" + SelectedPBS.Type + ".png",
+                        pbsItemTags: tagObjets
+                    });
+                callback(pbsItem);                
+            },
+            function (error) {
+                console.log(JSON.stringify(error));
+            });
+    
+}
 
-                    // create the item for binding purposes. 
-                    pbsItem =
-                        ({
-                            name: SelectedPBS.Name,
-                            type: SelectedPBS.Type,
-                            Icon_URL: "./Images/" + SelectedPBS.Type + ".png",
-                            pbsItemTags: tagObjets
-                        });
+function bindToGrid(result)
+{
+    kendo.bind($('#pbsItemContent'), result, kendo.mobile.ui);
+}
 
-                    //bind out to the pbsItemContent div
-                    kendo.bind($('#pbsItemContent'), pbsItem, kendo.mobile.ui);
-                },
-                function (error) {
-                    console.log(JSON.stringify(error));
-                });
+function showPBSItemDetail()
+{
+    //uses a callback to bind the data to the grid only after the tag values have been populated.
+   setTagValues(bindToGrid);
 
-    }
-    // (
-
-
-//     function () {
-//         var currentPBSItem;
-//         window.PBSItemDetail = {
-//             show: function () {
-
-//                 //TODO: use callbacks here so we can make sure the data is fully set before we bind.
-
-//                 console.log("TRACE: [PBSItemDetail.show] Enter");
-
-//                 // -- build up the query for tags -- 
-//                 var expandTags = {
-//                     "PBSItemTag": true
-//                 };
-//                 var queryTags = new Everlive.Query();
-//                 queryTags.expand(expandTags);
-//                 var data = el.data("PBSLevel");
-
-//                 // -- execute the query --
-//                 console.log("pbsid=" + SelectedPBS.Id);
-//                 data.expand(expandTags).getById(SelectedPBS.Id)
-//                     .then(function (data) {
-//                             tagObjets = data.result.PBSItemTag; //JSON.parse(retrievedObject);
-
-//                             //set icon for all objects -- probably be a better way to do this... 
-//                             for (var i = 0; i < tagObjets.length; i++) {
-//                                 tagObjets[i].Icon_URL = "./Images/" + tagObjets[i].Classification + ".png";
-//                             };
-
-//                             // create the item for binding purposes. 
-//                             pbsItem =
-//                                 ({
-//                                     name: SelectedPBS.Name,
-//                                     type: SelectedPBS.Type,
-//                                     Icon_URL: "./Images/" + SelectedPBS.Type + ".png",
-//                                     pbsItemTags: tagObjets
-//                                 });
-
-//                             //bind out to the pbsItemContent div
-//                             kendo.bind($('#pbsItemContent'), pbsItem, kendo.mobile.ui);
-//                         },
-//                         function (error) {
-//                             console.log(JSON.stringify(error));
-//                         });
-
-//             },
-//             hide: function () {},
-//             openLink: function () {}
-//         };
-//     }());
+}
