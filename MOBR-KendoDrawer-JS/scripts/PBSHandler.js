@@ -58,8 +58,6 @@ function setTagValues(callback) {
                         pbsItemTags: tagObjets,
                         children: JSON.parse(localStorage.getItem('childObjects')),
                         details_tag: function (e) {
-                            alert("Hello!");
-                            alert(JSON.stringify(e.data.Name));
                             SelectedTag = e.data;
                             app.navigate("views/TagDetails.html", "slide");
 

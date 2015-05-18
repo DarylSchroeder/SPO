@@ -1,17 +1,15 @@
 function setTaggedItemValues(callback) {
     // -- build up the query for children -- 
     var expandDocuments = {
-        "TagDocuments": true
+        "TagDocument": true
     };
     var queryDocuments = new Everlive.Query();
     queryDocuments.expand(expandDocuments);
     var documentData = el.data("TaggedItem");
+    
     documentData.expand(expandDocuments).getById(SelectedTag.Id)
         .then(function (documentData) {
-                docObjects = documentData.result.TagDocuments;
-                for (var i = 0; i < docObjects.length; i++) {
-                    docObjects[i].Icon_URL = "./Images/" + docObjects[i].Type + ".png";
-                };
+                docObjects = documentData.result.TagDocument;
                 localStorage.setItem('docObjects', JSON.stringify(docObjects));
             },
             function (error) {
