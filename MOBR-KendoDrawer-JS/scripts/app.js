@@ -1,8 +1,9 @@
 var currentTheme = "glacier";
 var SelectedPBS;
+var SelectedTag;
 var apiKey = "Hro5ZCMacvvdbWuA";
-var el = new Everlive(apiKey);    
-
+var el = new Everlive(apiKey);
+var app;
 
 
 function toggleTheme() {
@@ -23,7 +24,7 @@ function toggleTheme() {
 
     // store a reference to the application object that will be created
     // later on so that we can use it if need be
-    var app;
+    
 
 
     // create an object to store the models for each view
@@ -50,14 +51,23 @@ function toggleTheme() {
                         }
                     }
                 }),
-                
-                details_pbs: function (e) {                    
+
+                details_pbs: function (e) {
                     SelectedPBS = e.data;
                     app.navigate("views/pbsItemDetails.html", "slide");
-                    
+
                 }
             }
         }
+    };
+
+    window.Tags = {
+        data: new kendo.data.DataSource({
+                type: "everlive",
+                transport: {
+                    typeName: "TaggedItem"
+                }
+            })
     };
 
 

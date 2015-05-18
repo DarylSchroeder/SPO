@@ -1,8 +1,8 @@
 //var pbsItem;
-function details_pbs()
-{
+function details_pbs() {
     alert("hello.");
 }
+
 function setTagValues(callback) {
     //alert("set values");
 
@@ -16,18 +16,18 @@ function setTagValues(callback) {
     var childData = el.data("PBSLevel");
     childData.expand(expandChildren).getById(SelectedPBS.Id)
         .then(function (childData) {
-        		//alert(JSON.stringify(childData.result.Children));
+                //alert(JSON.stringify(childData.result.Children));
                 childObjects = childData.result.Children;
                 for (var i = 0; i < childObjects.length; i++) {
                     childObjects[i].Icon_URL = "./Images/" + childObjects[i].Type + ".png";
                 };
-        		localStorage.setItem('childObjects', JSON.stringify(childObjects));
+                localStorage.setItem('childObjects', JSON.stringify(childObjects));
             },
             function (error) {
                 console.log(JSON.stringify(error));
             });
 
-    
+
     //
     // -- build up the query for tags -- 
     //
@@ -56,9 +56,16 @@ function setTagValues(callback) {
                         type: SelectedPBS.Type,
                         Icon_URL: "./Images/" + SelectedPBS.Type + ".png",
                         pbsItemTags: tagObjets,
-                        children: JSON.parse(localStorage.getItem('childObjects'))
+                        children: JSON.parse(localStorage.getItem('childObjects')),
+                        details_tag: function (e) {
+                            alert("Hello!");
+                            alert(JSON.stringify(e.data.Name));
+                            SelectedTag = e.data;
+                            app.navigate("views/TagDetails.html", "slide");
+
+                        }
                     });
-        		//console.log(pbsItem);
+                //console.log(pbsItem);
                 callback(pbsItem);
             },
             function (error) {
