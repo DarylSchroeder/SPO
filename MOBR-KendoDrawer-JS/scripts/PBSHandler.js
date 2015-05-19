@@ -1,8 +1,3 @@
-//var pbsItem;
-function details_pbs() {
-    alert("hello.");
-}
-
 function setTagValues(callback) {
     //alert("set values");
 

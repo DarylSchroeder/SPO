@@ -5,25 +5,38 @@ var apiKey = "Hro5ZCMacvvdbWuA";
 var el = new Everlive(apiKey);
 var app;
 
-function loadchart() {
-    var pieData = [{
-            value: 30,
-            color: "#F38630",
-            label: 'Closed',
-            labelColor: 'white',
-            labelFontSize: '16'
-                        },
-        {
-            value: 30,
-            color: "#F34353",
-            label: 'Open',
-            labelColor: 'white',
-            labelFontSize: '16'
-                        }];
+function QueryCountByProperty(strDataTable, strProperty, strStatus, callback) {
+    var filter = new Everlive.Query();
+    filter.where().eq(strProperty, strStatus);
+    var data = Everlive.$.data(strDataTable);
+    data.get(filter)
+        .then(function (res) {
+            console.log("query ran:" + res.count);
+        	//return res.count;
+			callback(res.count);
+        });
+}
+
+function populateChart(results1, results2) {
+    var pieData = [{value: 30,color: "#F38630",label: 'Closed',labelColor: 'white',labelFontSize: '16'},
+        		   {value: 30,color: "#F34353",label: 'Open',labelColor: 'white',labelFontSize: '16'}];
+    console.log("populate chart");
     var myPie = new Chart(document.getElementById("canvas").getContext("2d")).Pie(pieData, {
         animationSteps: 100,
         animationEasing: 'easeInOutQuart'
     });
+}
+
+function getChartValues(callback) {
+     console.log("getChartValues");
+     var results1 = QueryCountByProperty("ObservationReport", "Status", "Closed");
+     var results2 = QueryCountByProperty("ObservationReport", "Status", "Open");    
+     callback(results1, results2);
+}
+
+function loadchart() {
+	//getChartValues(populateChart);
+    QueryCountByProperty("ObservationReport", "Status", "Closed", populateChart);
 }
 
 function toggleTheme() {
@@ -51,11 +64,7 @@ function toggleTheme() {
     window.APP = {
         models: {
             home: {
-                title: 'Home',
-                loadchart: function () {
-                    alert("yo");
-
-                }
+                title: 'Home'
 
             },
             settings: {
@@ -90,6 +99,16 @@ function toggleTheme() {
                         typeName: "TaggedItem"
                     }
                 })
+            },
+            reportView: {
+
+                closed: function () {
+                    return QueryCountByProperty("ObservationReport", "Status", "Closed");
+                },
+                open: function () {
+                    return QueryCountByProperty("ObservationReport", "Status", "Open");
+                }
+
             }
 
         }
