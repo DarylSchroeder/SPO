@@ -47,7 +47,6 @@ function setTaggedItemValues(callback) {
                 	    var queryFiles = new Everlive.Query();
                 	    queryFiles.expand(expandFiles);
                 	    var fileData = el.data("Documents");
-                	    alert("Hello!");
                 	    fileData.expand(expandFiles).getById(SelectedDoc.Id)
                             .then(function (fileData) {
                                 fileObjects = fileData.result.DocumentFile;
