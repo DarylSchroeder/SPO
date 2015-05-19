@@ -59,6 +59,9 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="index.html" />
+    <Content Include="views\tagDetails.html">
+      <SubType>Content</SubType>
+    </Content>
     <Resource Include="App_Resources\Android\drawable-hdpi\icon.png" />
     <Resource Include="App_Resources\Android\drawable-ldpi\icon.png" />
     <Resource Include="App_Resources\Android\drawable-mdpi\icon.png" />
@@ -123,7 +126,6 @@
     <Content Include="views\PBS.html" />
     <Content Include="views\pbsItemDetails.html" />
     <Content Include="views\settings.html" />
-    <Content Include="views\tagDetails.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Resources\" />
