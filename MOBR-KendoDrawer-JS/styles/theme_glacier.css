@@ -1,17 +1,20 @@
 .km-drawer-button:before, .km-drawer-button:after  { content: "\E077"; }
 
 
+img.listViewIcon
+{
+    width: 32px;
+    float: left;
+    height: 32px;
+}
 div.listViewTextMain
 {
     font-weight: bold;
     margin-left:40px;
-    font-size: 17px;
-    font-size: 1.75vw;
 }
 div.listViewTextSub
 {
-    font-size: 15px;
-    font-size: 1.5vw;
+    font-size:75%;
     margin-left:40px;
 }
 div
@@ -20,23 +23,18 @@ div
 }
 
 div.Header1
-{
-    font-size: 30px;
-    font-size: 3.5vw;    
+{   
+    font-size:150%;
     font-weight: bold;
 }
 
 div.Header2
 {
-    font-size: 20px;
-    font-size: 2.0vw;
     font-weight: bold;
 }
 
 div.SubItem
 {
-    font-size: 20px;
-    font-size: 2.0vw;
     font-style:italic;
     margin-left:25px;
 }
