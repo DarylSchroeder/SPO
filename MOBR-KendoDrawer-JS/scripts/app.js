@@ -5,6 +5,26 @@ var apiKey = "Hro5ZCMacvvdbWuA";
 var el = new Everlive(apiKey);
 var app;
 
+function loadchart() {
+    var pieData = [{
+            value: 30,
+            color: "#F38630",
+            label: 'Closed',
+            labelColor: 'white',
+            labelFontSize: '16'
+                        },
+        {
+            value: 30,
+            color: "#F34353",
+            label: 'Open',
+            labelColor: 'white',
+            labelFontSize: '16'
+                        }];
+    var myPie = new Chart(document.getElementById("canvas").getContext("2d")).Pie(pieData, {
+        animationSteps: 100,
+        animationEasing: 'easeInOutQuart'
+    });
+}
 
 function toggleTheme() {
     var themes = ["glacier", "shadow"];
@@ -24,14 +44,19 @@ function toggleTheme() {
 
     // store a reference to the application object that will be created
     // later on so that we can use it if need be
-    
+
 
 
     // create an object to store the models for each view
     window.APP = {
         models: {
             home: {
-                title: 'Home'
+                title: 'Home',
+                loadchart: function () {
+                    alert("yo");
+
+                }
+
             },
             settings: {
                 title: 'Settings'
@@ -69,7 +94,7 @@ function toggleTheme() {
 
         }
     };
-    
+
 
 
     // this function is called by Cordova when the application is loaded by the device
