@@ -59,7 +59,7 @@ function setTagValues(callback) {
                         children: JSON.parse(localStorage.getItem('childObjects')),
                         details_tag: function (e) {
                             SelectedTag = e.data;
-                            app.navigate("views/TagDetails.html", "slide");
+                            app.navigate("views/tagDetails.html", "slide");
 
                         }
                     });

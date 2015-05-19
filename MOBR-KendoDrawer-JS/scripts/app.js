@@ -57,18 +57,19 @@ function toggleTheme() {
                     app.navigate("views/pbsItemDetails.html", "slide");
 
                 }
+            },
+            tags: {
+                ds: new kendo.data.DataSource({
+                    type: "everlive",
+                    transport: {
+                        typeName: "TaggedItem"
+                    }
+                })
             }
+
         }
     };
     
-    window.Tags = {
-        data: new kendo.data.DataSource({
-                type: "everlive",
-                transport: {
-                    typeName: "TaggedItem"
-                }
-            })
-    };
 
 
     // this function is called by Cordova when the application is loaded by the device

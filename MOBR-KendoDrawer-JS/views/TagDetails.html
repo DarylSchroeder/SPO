@@ -1,7 +1,8 @@
 <div data-role="view" data-title="Details" data-layout="main" data-reload="true" data-show="showTagDetails">
-    <div id="tagContent">	
+    <div id="tagContent" class="detailsPage">	
     	<div class="Header1" data-bind="text: name"></div>
-        <div class="Header1" data-bind="text: classification"></div>
+        <div class="Header2">Type</div>
+        <div class="SubItem" data-bind="text: classification"></div>
         <div class="Header2">Observation Reports</div>
         <ul data-role="listview" data-style="inset" data-template="report-template" data-bind="source: observationReports"></ul>
         <div class="Header2">Documents</div>

@@ -28,6 +28,36 @@
     <Content Include="cordova.android.js" />
     <Content Include="cordova.ios.js" />
     <Content Include="cordova.wp8.js" />
+    <Content Include="Images\Area.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\BV.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\BV2.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\CV.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\defaultPBS.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\defaultTag.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Flange.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\hexagonab.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\intergraph.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\Plant.png">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="index.html" />
     <Resource Include="App_Resources\Android\drawable-hdpi\icon.png" />
     <Resource Include="App_Resources\Android\drawable-ldpi\icon.png" />
@@ -86,8 +116,6 @@
     <Content Include="scripts\PBSHandler.js" />
     <Content Include="scripts\TagDetails.js" />
     <Content Include="styles\main.css" />
-    <Content Include="styles\glacier.css" />
-    <Content Include="styles\shadow.css" />
     <Content Include="styles\theme_glacier.css" />
     <Content Include="styles\theme_shadow.css" />
     <Content Include="views\dataTemplates.html" />
@@ -109,6 +137,7 @@
     <Folder Include="App_Resources\WP8\Assets\" />
     <Folder Include="App_Resources\WP8\Tiles\" />
     <Folder Include="App_Resources\WP8\Tiles\Iconic\" />
+    <Folder Include="Images\" />
     <Folder Include="kendo\" />
     <Folder Include="kendo\js\" />
     <Folder Include="kendo\styles\" />
