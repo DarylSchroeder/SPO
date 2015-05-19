@@ -60,7 +60,7 @@ function toggleTheme() {
             }
         }
     };
-
+    
     window.Tags = {
         data: new kendo.data.DataSource({
                 type: "everlive",
