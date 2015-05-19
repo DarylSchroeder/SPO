@@ -38,6 +38,22 @@ function setTaggedItemValues(callback) {
                     classification: SelectedTag.Classification,
                 	observationReports: reportObjects,
                 	tagDocuments: JSON.parse(localStorage.getItem('docObjects')),
+                	file_doc: function (e) {
+                	    SelectedDoc = e.data
+
+                	    var expandFiles = {
+                	        "DocumentFile": true
+                	    };
+                	    var queryFiles = new Everlive.Query();
+                	    queryFiles.expand(expandFiles);
+                	    var fileData = el.data("Documents");
+                	    alert("Hello!");
+                	    fileData.expand(expandFiles).getById(SelectedDoc.Id)
+                            .then(function (fileData) {
+                                fileObjects = fileData.result.DocumentFile;
+                                window.open("https://bs3.cdn.telerik.com/v1/Hro5ZCMacvvdbWuA/" + fileObjects.Id, "_system");
+                            })
+                	}
                 });
 
             callback(taggedItem);
