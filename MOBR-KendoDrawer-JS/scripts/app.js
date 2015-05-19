@@ -5,38 +5,24 @@ var apiKey = "Hro5ZCMacvvdbWuA";
 var el = new Everlive(apiKey);
 var app;
 
-function QueryCountByProperty(strDataTable, strProperty, strStatus, callback) {
-    var filter = new Everlive.Query();
-    filter.where().eq(strProperty, strStatus);
-    var data = Everlive.$.data(strDataTable);
-    data.get(filter)
-        .then(function (res) {
-            console.log("query ran:" + res.count);
-        	//return res.count;
-			callback(res.count);
-        });
-}
 
-function populateChart(results1, results2) {
-    var pieData = [{value: 30,color: "#F38630",label: 'Closed',labelColor: 'white',labelFontSize: '16'},
-        		   {value: 30,color: "#F34353",label: 'Open',labelColor: 'white',labelFontSize: '16'}];
-    console.log("populate chart");
+//creates a chart on the canvas object.
+function populateChart(closed, open) {
+    var pieData = [{ value: closed, color: "#F38630", label: 'Closed', labelColor: 'white', labelFontSize: '16' },
+        		   { value: open, color: "#F34353", label: 'Open', labelColor: 'white', labelFontSize: '16' }];
     var myPie = new Chart(document.getElementById("canvas").getContext("2d")).Pie(pieData, {
         animationSteps: 100,
         animationEasing: 'easeInOutQuart'
     });
 }
 
-function getChartValues(callback) {
-     console.log("getChartValues");
-     var results1 = QueryCountByProperty("ObservationReport", "Status", "Closed");
-     var results2 = QueryCountByProperty("ObservationReport", "Status", "Open");    
-     callback(results1, results2);
-}
-
+//chain the 2 expansions together to get Closed & open statuses, use callbacks to ensure correct ordering, then populate chart.
 function loadchart() {
 	//getChartValues(populateChart);
-    QueryCountByProperty("ObservationReport", "Status", "Closed", populateChart);
+    QueryCountByProperty("ObservationReport", "Status", "Closed", function (e) {
+        QueryCountByProperty("ObservationReport", "Status", "Open", function (f)
+        { populateChart(e, f); })
+    });
 }
 
 function toggleTheme() {
