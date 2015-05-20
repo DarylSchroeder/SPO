@@ -7,9 +7,9 @@ var app;
 
 
 //creates a chart on the canvas object.
-function populateChart(closed, open) {
-    var pieData = [{ value: closed, color: "#F38630", label: 'Closed', labelColor: 'white', labelFontSize: '16' },
-        		   { value: open, color: "#F34353", label: 'Open', labelColor: 'white', labelFontSize: '16' }];
+function populateChart() {
+    var pieData = [{ value: window.APP.models.observation.closed, color: "#F38630", label: 'Closed', labelColor: 'white', labelFontSize: '16' },
+        		   { value: window.APP.models.observation.open, color: "#F34353", label: 'Open', labelColor: 'white', labelFontSize: '16' }];
     var myPie = new Chart(document.getElementById("canvas").getContext("2d")).Pie(pieData, {
         animationSteps: 100,
         animationEasing: 'easeInOutQuart'
@@ -18,10 +18,13 @@ function populateChart(closed, open) {
 
 //chain the 2 expansions together to get Closed & open statuses, use callbacks to ensure correct ordering, then populate chart.
 function loadchart() {
-	//getChartValues(populateChart);
     QueryCountByProperty("ObservationReport", "Status", "Closed", function (e) {
         QueryCountByProperty("ObservationReport", "Status", "Open", function (f)
-        { populateChart(e, f); })
+        {
+            window.APP.models.observation.open = e;
+            window.APP.models.observation.closed = f;
+            populateChart();
+        })
     });
 }
 
@@ -40,11 +43,6 @@ function toggleTheme() {
 }
 
 (function () {
-
-    // store a reference to the application object that will be created
-    // later on so that we can use it if need be
-
-
 
     // create an object to store the models for each view
     window.APP = {
@@ -86,17 +84,12 @@ function toggleTheme() {
                     }
                 })
             },
-            reportView: {
+            observation:
+                {
+                    open: {},//STUB: populated elesewhere
+                    closed: {}  //STUB: populated elesewhere
 
-                closed: function () {
-                    return QueryCountByProperty("ObservationReport", "Status", "Closed");
-                },
-                open: function () {
-                    return QueryCountByProperty("ObservationReport", "Status", "Open");
                 }
-
-            }
-
         }
     };
 
