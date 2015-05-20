@@ -1,9 +1,9 @@
 <div data-role="view" data-title="Details" data-layout="main" data-reload="true" data-show="showTagDetails">
-    <div id="tagContent" class="detailsPage">	
-    	<div class="Header1" data-bind="text: name"></div>
+    <div id="tagContent" class="detailsPage">
+        <div class="Header1" data-bind="text: name"></div>
         <div class="Header2">Type</div>
         <div class="SubItem" data-bind="text: classification"></div>
-        <div class="Header2">Observation Reports</div>
+        <div class="Header2">Reports</div>
         <ul data-role="listview" data-style="inset" data-template="report-template" data-bind="source: observationReports"></ul>
         <div class="Header2">Documents</div>
         <ul data-role="listview" data-style="inset" data-template="document-template" data-bind="source: tagDocuments"></ul>
@@ -13,7 +13,7 @@
 <script type="text/x-kendo-template" id="report-template">
     <a data-bind="click: details_reports">
         <div style="overflow: hidden;">
-        	<img data-bind="attr: {src:Icon_URL}" id="logo" class="listViewIcon" onerror="if (this.src != './Images/defaultTag.png') this.src = './Images/defaultTag.png';"/>
+            <img data-bind="attr: {src:Icon_URL}" id="logo" class="listViewIcon" onerror="if (this.src != './Images/defaultTag.png') this.src = './Images/defaultTag.png';" />
             <div class="listViewTextMain" data-bind="text: Name"></div>
         </div>
     </a>

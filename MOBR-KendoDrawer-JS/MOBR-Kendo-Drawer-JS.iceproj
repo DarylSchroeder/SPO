@@ -59,7 +59,10 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="index.html" />
-    <Content Include="scripts\queryHandler.js" />
+    <Content Include="scripts\queryHandler.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\details.html" />
     <Content Include="views\tagDetails.html">
       <SubType>Content</SubType>
     </Content>
