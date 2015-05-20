@@ -60,6 +60,12 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="index.html" />
+    <Content Include="scripts\home.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="scripts\ObservationReport.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="scripts\queryHandler.js">
       <SubType>Content</SubType>
     </Content>
