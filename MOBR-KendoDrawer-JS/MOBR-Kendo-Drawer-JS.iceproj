@@ -69,6 +69,7 @@
     <Content Include="scripts\queryHandler.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="styles\common.css" />
     <Content Include="views\details.html" />
     <Content Include="views\tagDetails.html">
       <SubType>Content</SubType>
