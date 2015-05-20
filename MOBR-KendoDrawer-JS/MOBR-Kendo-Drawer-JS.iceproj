@@ -130,7 +130,6 @@
     <Content Include="scripts\app.js" />
     <Content Include="scripts\PBSHandler.js" />
     <Content Include="scripts\TagDetails.js" />
-    <Content Include="styles\main.css" />
     <Content Include="styles\theme_glacier.css" />
     <Content Include="styles\theme_shadow.css" />
     <Content Include="views\dataTemplates.html" />
