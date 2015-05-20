@@ -59,6 +59,7 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="index.html" />
+    <Content Include="views\details.html" />
     <Content Include="views\tagDetails.html">
       <SubType>Content</SubType>
     </Content>
