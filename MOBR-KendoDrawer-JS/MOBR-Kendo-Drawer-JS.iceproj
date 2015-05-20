@@ -31,6 +31,7 @@
     <Content Include="Images\Area.png">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Images\ArrowKnockout.svg" />
     <Content Include="Images\BV.png">
       <SubType>Content</SubType>
     </Content>

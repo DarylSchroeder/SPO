@@ -68,6 +68,16 @@ body
     background: linear-gradient(0deg,#3B97B3,#85B6D4);
 }
 
+div.mainScreenDiv
+{
+    margin: 5px, 0; 
+    background-color: rgba(0,0,0,0.10); 
+    float: left; 
+    min-width: 250px; 
+    width: auto;
+    min-height: 210px;
+}
+
 span.pageTitle
 {
     color:#FFFFFFF;

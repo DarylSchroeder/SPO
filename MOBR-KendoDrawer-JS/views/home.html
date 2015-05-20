@@ -1,8 +1,57 @@
 <div data-role="view" data-title="Observation Reporting" data-layout="main" data-model="APP.models.home" data-show="loadchart">
-    <div style="margin:5px;background-color:rgba(0,0,0,0.05); float:left;" >
-        <div style="margin:5px">           
-            <span>Report Status</span><br/>
-            <canvas id="canvas" height="auto" width="180" ></canvas>            
+    <div class="mainScreenDiv">
+        <div style="margin:5px;height:200px;">
+            <span>Report Status</span><br />
+            <canvas id="canvas" height="180" width="auto"></canvas>
+            <div style="float:right">
+                <label>Open:</label> <div style="float: right; margin-left: 5px;" id="observationOpen"></div><br />
+                <label>Closed:</label><div style="float:right; margin-left:5px;" id="observationClosed"></div>
+            </div>
+
         </div>
+    </div>
+
+
+    <div class="mainScreenDiv"  id="nextObservation">
+        <div style="margin:5px;height:200px;">
+            <span>Navigate to Next Observation</span><br />
+            <style>
+                .km-arrow-e:after,
+                .km-arrow-e:before {
+                    content: "\e0b2";
+                }
+            </style>
+            <div data-role="tabstrip" style="float:left;  width:auto;">
+                <img src="Images/ArrowKnockout.svg" height="120" style="float: left; margin-top:20px; " />
+                <div style="float: left; margin-top: 40px; ">
+                    <table style="width: 200px; table-layout: fixed; margin-left:10px">
+                        <tr>
+                            <td>
+                                <div style="float:left" data-bind="text: distance"></div><label style="float: left; margin-left:5px;"> meters away</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div style="float:left" data-bind="text: tag.Name"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 100px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                <div style="display:inline; " data-bind="text: description"></div>
+                            </td>
+                        </tr>
+                    </table>
+                    
+                    
+                </div>
+            </div>
+            
+        </div>
+
+    </div>
+
+
+    <div class="mainScreenDiv" id="nextObservation">
+        content
     </div>
 </div>

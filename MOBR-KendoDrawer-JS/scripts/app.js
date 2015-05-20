@@ -8,8 +8,8 @@ var app;
 
 //creates a chart on the canvas object.
 function populateChart() {
-    var pieData = [{ value: window.APP.models.observation.closed, color: "#F38630", label: 'Closed', labelColor: 'white', labelFontSize: '16' },
-        		   { value: window.APP.models.observation.open, color: "#F34353", label: 'Open', labelColor: 'white', labelFontSize: '16' }];
+    var pieData = [{ value: window.APP.models.home.observationsClosed, color: "#F38630", label: 'Closed', labelColor: 'white', labelFontSize: '16' },
+        		   { value: window.APP.models.home.observationsOpen, color: "#F34353", label: 'Open', labelColor: 'white', labelFontSize: '16' }];
     var myPie = new Chart(document.getElementById("canvas").getContext("2d")).Pie(pieData, {
         animationSteps: 100,
         animationEasing: 'easeInOutQuart'
@@ -21,8 +21,21 @@ function loadchart() {
     QueryCountByProperty("ObservationReport", "Status", "Closed", function (e) {
         QueryCountByProperty("ObservationReport", "Status", "Open", function (f)
         {
-            window.APP.models.observation.open = e;
-            window.APP.models.observation.closed = f;
+            window.APP.models.home.observationsClosed = e;
+            window.APP.models.home.observationsOpen = f;
+
+            document.getElementById("observationClosed").textContent = e;
+            document.getElementById("observationOpen").textContent = f;
+            
+            var NextObservation = kendo.observable({
+
+                distance: 25,
+                tag: { Name: '21-PA-413', Type: 'Pump' },
+                description: 'pump is leaking with residue situated underneath the rotation shaft'
+            });
+            //alert(JSON.stringify(NextObservation));
+            kendo.bind($("div"), NextObservation);
+
             populateChart();
         })
     });
@@ -48,8 +61,9 @@ function toggleTheme() {
     window.APP = {
         models: {
             home: {
-                title: 'Home'
-
+                title: 'Home',
+                observationsOpen: {},
+                observationsClosed: {}                
             },
             settings: {
                 title: 'Settings'
@@ -83,13 +97,7 @@ function toggleTheme() {
                         typeName: "TaggedItem"
                     }
                 })
-            },
-            observation:
-                {
-                    open: {},//STUB: populated elesewhere
-                    closed: {}  //STUB: populated elesewhere
-
-                }
+            }
         }
     };
 
