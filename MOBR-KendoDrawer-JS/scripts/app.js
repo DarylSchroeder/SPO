@@ -5,24 +5,23 @@ var apiKey = "Hro5ZCMacvvdbWuA";
 var el = new Everlive(apiKey);
 var app;
 
-function loadchart() {
-    var pieData = [{
-            value: 30,
-            color: "#F38630",
-            label: 'Closed',
-            labelColor: 'white',
-            labelFontSize: '16'
-                        },
-        {
-            value: 30,
-            color: "#F34353",
-            label: 'Open',
-            labelColor: 'white',
-            labelFontSize: '16'
-                        }];
+
+//creates a chart on the canvas object.
+function populateChart(closed, open) {
+    var pieData = [{ value: closed, color: "#F38630", label: 'Closed', labelColor: 'white', labelFontSize: '16' },
+        		   { value: open, color: "#F34353", label: 'Open', labelColor: 'white', labelFontSize: '16' }];
     var myPie = new Chart(document.getElementById("canvas").getContext("2d")).Pie(pieData, {
         animationSteps: 100,
         animationEasing: 'easeInOutQuart'
+    });
+}
+
+//chain the 2 expansions together to get Closed & open statuses, use callbacks to ensure correct ordering, then populate chart.
+function loadchart() {
+	//getChartValues(populateChart);
+    QueryCountByProperty("ObservationReport", "Status", "Closed", function (e) {
+        QueryCountByProperty("ObservationReport", "Status", "Open", function (f)
+        { populateChart(e, f); })
     });
 }
 
@@ -51,11 +50,7 @@ function toggleTheme() {
     window.APP = {
         models: {
             home: {
-                title: 'Home',
-                loadchart: function () {
-                    alert("yo");
-
-                }
+                title: 'Home'
 
             },
             settings: {
@@ -90,6 +85,16 @@ function toggleTheme() {
                         typeName: "TaggedItem"
                     }
                 })
+            },
+            reportView: {
+
+                closed: function () {
+                    return QueryCountByProperty("ObservationReport", "Status", "Closed");
+                },
+                open: function () {
+                    return QueryCountByProperty("ObservationReport", "Status", "Open");
+                }
+
             }
 
         }
