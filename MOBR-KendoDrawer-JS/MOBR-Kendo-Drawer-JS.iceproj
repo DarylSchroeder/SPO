@@ -132,7 +132,6 @@
     <Content Include="scripts\TagDetails.js" />
     <Content Include="styles\theme_glacier.css" />
     <Content Include="styles\theme_shadow.css" />
-    <Content Include="views\dataTemplates.html" />
     <Content Include="views\home.html" />
     <Content Include="views\PBS.html" />
     <Content Include="views\pbsItemDetails.html" />
