@@ -25,6 +25,105 @@
     <Content Include=".abproject" />
     <Content Include=".debug.abproject" />
     <Content Include=".release.abproject" />
+    <Content Include="bower_components\chartjs\.bower.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\chartjs\.gitignore">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\chartjs\.travis.yml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\chartjs\bower.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\chartjs\Chart.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\chartjs\Chart.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\chartjs\CONTRIBUTING.md">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\chartjs\docs\00-Getting-Started.md">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\chartjs\docs\01-Line-Chart.md">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\chartjs\docs\02-Bar-Chart.md">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\chartjs\docs\03-Radar-Chart.md">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\chartjs\docs\04-Polar-Area-Chart.md">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\chartjs\docs\05-Pie-Doughnut-Chart.md">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\chartjs\docs\06-Advanced.md">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\chartjs\docs\07-Notes.md">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\chartjs\gulpfile.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\chartjs\LICENSE.md">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\chartjs\package.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\chartjs\README.md">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\chartjs\samples\bar.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\chartjs\samples\doughnut.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\chartjs\samples\line-customTooltips.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\chartjs\samples\line.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\chartjs\samples\pie-customTooltips.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\chartjs\samples\pie.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\chartjs\samples\polar-area.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\chartjs\samples\radar.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\chartjs\src\Chart.Bar.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\chartjs\src\Chart.Core.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\chartjs\src\Chart.Doughnut.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\chartjs\src\Chart.Line.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\chartjs\src\Chart.PolarArea.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\chartjs\src\Chart.Radar.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="cordova.android.js" />
     <Content Include="cordova.ios.js" />
     <Content Include="cordova.wp8.js" />
@@ -60,6 +159,117 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="index.html" />
+    <Content Include="kendo\js\kendo.dataviz.mobile.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\Black\markers.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\Black\markers_2x.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\BlueOpal\markers.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\BlueOpal\markers_2x.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\Bootstrap\markers.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\Bootstrap\markers_2x.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\Default\markers.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\Default\markers_2x.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\Flat\markers.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\Flat\markers_2x.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\HighContrast\markers.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\HighContrast\markers_2x.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\kendo.dataviz.black.min.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\kendo.dataviz.blueopal.min.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\kendo.dataviz.bootstrap.min.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\kendo.dataviz.default.min.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\kendo.dataviz.flat.min.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\kendo.dataviz.highcontrast.min.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\kendo.dataviz.material.min.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\kendo.dataviz.materialblack.min.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\kendo.dataviz.metro.min.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\kendo.dataviz.metroblack.min.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\kendo.dataviz.mobile.min.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\kendo.dataviz.moonlight.min.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\kendo.dataviz.silver.min.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\kendo.dataviz.uniform.min.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\MetroBlack\markers.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\MetroBlack\markers_2x.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\Metro\markers.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\Metro\markers_2x.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\Moonlight\markers.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\Moonlight\markers_2x.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\Silver\markers.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\Silver\markers_2x.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\Uniform\markers.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\Uniform\markers_2x.png">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="scripts\home.js">
       <SubType>Content</SubType>
     </Content>
@@ -117,8 +327,6 @@
     <Resource Include="App_Resources\WP8\Tiles\Iconic\110x110.png" />
     <Resource Include="App_Resources\WP8\Tiles\Iconic\202x202.png" />
     <Content Include="kendo\js\jquery.min.js" />
-    <Content Include="kendo\js\kendo.mobile.min.js" />
-    <Content Include="kendo\styles\kendo.mobile.all.min.css" />
     <Content Include="kendo\styles\images\back.png" />
     <Content Include="kendo\styles\images\kendoui.svg" />
     <Content Include="kendo\styles\images\kendoui.ttf" />
@@ -149,11 +357,27 @@
     <Folder Include="App_Resources\WP8\Assets\" />
     <Folder Include="App_Resources\WP8\Tiles\" />
     <Folder Include="App_Resources\WP8\Tiles\Iconic\" />
+    <Folder Include="bower_components\" />
+    <Folder Include="bower_components\chartjs\" />
+    <Folder Include="bower_components\chartjs\docs\" />
+    <Folder Include="bower_components\chartjs\samples\" />
+    <Folder Include="bower_components\chartjs\src\" />
     <Folder Include="Images\" />
     <Folder Include="kendo\" />
     <Folder Include="kendo\js\" />
     <Folder Include="kendo\styles\" />
+    <Folder Include="kendo\styles\Black\" />
+    <Folder Include="kendo\styles\BlueOpal\" />
+    <Folder Include="kendo\styles\Bootstrap\" />
+    <Folder Include="kendo\styles\Default\" />
+    <Folder Include="kendo\styles\Flat\" />
+    <Folder Include="kendo\styles\HighContrast\" />
     <Folder Include="kendo\styles\images\" />
+    <Folder Include="kendo\styles\MetroBlack\" />
+    <Folder Include="kendo\styles\Metro\" />
+    <Folder Include="kendo\styles\Moonlight\" />
+    <Folder Include="kendo\styles\Silver\" />
+    <Folder Include="kendo\styles\Uniform\" />
     <Folder Include="kendo\typescript\" />
     <Folder Include="Plugins\" />
     <Folder Include="scripts\" />
