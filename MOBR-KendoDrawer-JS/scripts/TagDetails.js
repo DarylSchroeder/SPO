@@ -1,4 +1,5 @@
 function setTaggedItemValues(callback) {
+    alert("Entered the tagged item values.");
     // -- build up the query for children -- 
     var expandDocuments = {
         "TagDocument": true
@@ -7,7 +8,7 @@ function setTaggedItemValues(callback) {
     queryDocuments.expand(expandDocuments);
     var documentData = el.data("TaggedItem");
     
-    documentData.expand(expandDocuments).getById(SelectedTag.Id)
+    documentData.expand(expandDocuments).getById(SelectedObject.Id)
         .then(function (documentData) {
                 docObjects = documentData.result.TagDocument;
                 localStorage.setItem('docObjects', JSON.stringify(docObjects));
@@ -27,19 +28,28 @@ function setTaggedItemValues(callback) {
     var data = el.data("TaggedItem");
 
     // -- execute the query --
-    data.expand(expandTags).getById(SelectedTag.Id)
+    data.expand(expandTags).getById(SelectedObject.Id)
         .then(function (data) {
-        	reportObjects = data.result.TagToObservationReport;
-            
+            reportObjects = data.result.TagToObservationReport;
+
+            //set icon for all objects -- probably be a better way to do this... 
+            for (var i = 0; i < reportObjects.length; i++) {
+                reportObjects[i].ClassType = "Observation Report";
+            };
+
             // create the item for binding purposes. 
             taggedItem =
                 ({
-                    name: SelectedTag.Name,
-                    classification: SelectedTag.Classification,
-                	observationReports: reportObjects,
-                	tagDocuments: JSON.parse(localStorage.getItem('docObjects')),
+                    name: SelectedObject.Name,
+                    header1: "Type",
+                    subItem1: SelectedObject.Classification,
+                    listHeader1: "Observation Reports",
+                    list1: reportObjects,
+                    documentListHeader: "Documents",
+                    documentList: JSON.parse(localStorage.getItem('docObjects')),
+                    launch_details: launch_details_function,
                 	file_doc: function (e) {
-                	    SelectedDoc = e.data
+                	    SelectedDoc = e.data;
 
                 	    var expandFiles = {
                 	        "DocumentFile": true
@@ -59,12 +69,39 @@ function setTaggedItemValues(callback) {
         })
 }
 
-function bindToTagGrid(result) {
-    kendo.bind($('#tagContent'), result, kendo.mobile.ui);
+function bindToDetailsGrid(result) {
+    kendo.bind($('#detailsContent'), result, kendo.mobile.ui);
 }
 
-function showTagDetails() {
+function showDetails() {
     //uses a callback to bind the data to the grid only after the tag values have been populated.
-    setTaggedItemValues(bindToTagGrid);
+    setItemValues(bindToDetailsGrid);
+}
 
+function setItemValues(callback) {
+    if (SelectedObject.ClassType == "Observation Report")
+    {
+        setObservationReportItemValues(callback);
+    }
+    else if (SelectedObject.ClassType == "Tag") {
+        setTaggedItemValues(callback);
+    }
+}
+
+function setObservationReportItemValues(callback) {   
+    observationItem =
+                ({
+                    name: SelectedObject.Name,
+                    header1: "Type",
+                    subItem1: SelectedObject.Type,
+                    header2: "Priority",
+                    subItem2: SelectedObject.Severity,
+                    header3: "Status",
+                    subItem3: SelectedObject.Status,
+                    header4: "Description",
+                    subItem4: SelectedObject.Description
+                });
+
+    alert(JSON.stringify(observationItem.name));
+    callback(observationItem);
 }

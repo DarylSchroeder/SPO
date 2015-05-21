@@ -4,9 +4,10 @@
         <div class="Header2">Type</div>
         <div class="SubItem" data-bind="text: classification"></div>
         <div class="Header2">Reports</div>
-        <ul data-role="listview" data-style="inset" data-template="report-template" data-bind="source: observationReports"></ul>
+        <ul data-role="listview" data-style="inset" data-template="details-template" data-bind="source: list1"></ul>
+        <!--<ul data-role="listview" data-style="inset" data-template="report-template" data-bind="source: list1"></ul>-->
         <div class="Header2">Documents</div>
-        <ul data-role="listview" data-style="inset" data-template="document-template" data-bind="source: tagDocuments"></ul>
+        <ul data-role="listview" data-style="inset" data-template="document-template" data-bind="source: documentList"></ul>
     </div>
 </div>
 
@@ -14,16 +15,6 @@
     <a data-bind="click: details_reports">
         <div style="overflow: hidden;">
             <img data-bind="attr: {src:Icon_URL}" id="logo" class="listViewIcon" onerror="if (this.src != './Images/defaultTag.png') this.src = './Images/defaultTag.png';" />
-            <div class="listViewTextMain" data-bind="text: Name"></div>
-        </div>
-    </a>
-</script>
-
-<script type="text/x-kendo-template" id="document-template">
-    <!--<a data-bind="click: file_doc">-->
-    <a data-bind="click: file_doc">
-        <div style="overflow: hidden;">
-            <img data-bind="attr: {src:Icon_URL}" id="logo" class="listViewIcon" onerror="if (this.src != './Images/defaultPBS.png') this.src = './Images/defaultPBS.png';" />
             <div class="listViewTextMain" data-bind="text: Name"></div>
         </div>
     </a>

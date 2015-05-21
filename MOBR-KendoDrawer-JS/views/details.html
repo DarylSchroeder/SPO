@@ -1,5 +1,5 @@
 <div data-role="view" data-title="Details" data-layout="main" data-reload="true" data-show="showDetails">
-    <div id="tagContent" class="detailsPage">
+    <div id="detailsContent" class="detailsPage">
         <div class="Header1" data-bind="text: name"></div>
         <div class="Header2" data-bind="text: header1"></div>
         <div class="SubItem" data-bind="text: subItem1"></div>
@@ -23,35 +23,34 @@
         <div class="SubItem" data-bind="text: subItem10"></div>
         <div class="Header2" data-bind="text: header11"></div>
         <div class="SubItem" data-bind="text: subItem11"></div>
-        <div class="Header2" data-bind="text: listheader1"></div>
-        <ul data-role="listview" data-style="inset" data-bind="source: list1, template: listtemplate1"></ul>
-        <div class="Header2" data-bind="text: listheader2"></div>
-        <ul data-role="listview" data-style="inset" data-bind="source: list2, template: listtemplate2"></ul>
-        <div class="Header2" data-bind="text: listheader3"></div>
-        <ul data-role="listview" data-style="inset" data-bind="source: list3, template: listtemplate3"></ul>
-        <div class="Header2" data-bind="text: listheader4"></div>
-        <ul data-role="listview" data-style="inset" data-bind="source: list4, template: listtemplate4"></ul>
-        <div class="Header2" data-bind="text: listheader5"></div>
-        <ul data-role="listview" data-style="inset" data-bind="source: list5, template: listtemplate5"></ul>
-        <div class="Header2" data-bind="text: listheader6"></div>
-        <ul data-role="listview" data-style="inset" data-bind="source: list6, template: listtemplate6"></ul>
+        <div class="Header2" data-bind="text: listHeader1"></div>
+        <ul data-role="listview" data-style="inset" data-template="details-template" data-bind="source: list1"></ul>
+        <div class="Header2" data-bind="text: listHeader2"></div>
+        <ul data-role="listview" data-style="inset" data-template="details-template" data-bind="source: list2"></ul>
+        <div class="Header2" data-bind="text: listHeader3"></div>
+        <ul data-role="listview" data-style="inset" data-template="details-template" data-bind="source: list3"></ul>
+        <div class="Header2" data-bind="text: listHeader4"></div>
+        <ul data-role="listview" data-style="inset" data-template="details-template" data-bind="source: list4"></ul>
+        <div class="Header2" data-bind="text: listHeader5"></div>
+        <ul data-role="listview" data-style="inset" data-template="details-template" data-bind="source: list5"></ul>
+        <div class="Header2" data-bind="text: documentListHeader"></div>
+        <ul data-role="listview" data-style="inset" data-template="document-template" data-bind="source: documentList"></ul>
     </div>
 </div>
 
-<script type="text/x-kendo-template" id="report-template">
-    <a data-bind="click: details_reports">
+<script type="text/x-kendo-template" id="document-template">
+    <a data-bind="click: file_doc">
         <div style="overflow: hidden;">
-            <img data-bind="attr: {src:Icon_URL}" id="logo" class="listViewIcon" onerror="if (this.src != './Images/defaultTag.png') this.src = './Images/defaultTag.png';" />
+            <img data-bind="attr: {src:Icon_URL}" id="logo" class="listViewIcon" onerror="if (this.src != './Images/defaultPBS.png') this.src = './Images/defaultPBS.png';" />
             <div class="listViewTextMain" data-bind="text: Name"></div>
         </div>
     </a>
 </script>
 
-<script type="text/x-kendo-template" id="document-template">
-    <!--<a data-bind="click: file_doc">-->
-    <a data-bind="click: file_doc">
+<script type="text/x-kendo-template" id="details-template">
+    <a data-bind="click: launch_details">
         <div style="overflow: hidden;">
-            <img data-bind="attr: {src:Icon_URL}" id="logo" class="listViewIcon" onerror="if (this.src != './Images/defaultPBS.png') this.src = './Images/defaultPBS.png';" />
+            <img data-bind="attr: { src: Icon_URL }" id="logo" class="listViewIcon" onerror="this.src = './Images/defaultTag.png';" />
             <div class="listViewTextMain" data-bind="text: Name"></div>
         </div>
     </a>

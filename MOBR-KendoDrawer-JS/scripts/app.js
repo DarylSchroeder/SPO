@@ -1,6 +1,7 @@
 var currentTheme = "glacier";
 var SelectedPBS;
 var SelectedTag;
+var SelectedObject;
 var apiKey = "Hro5ZCMacvvdbWuA";
 var el = new Everlive(apiKey);
 var app;
@@ -37,6 +38,12 @@ function toggleTheme() {
         }
     }
     currentTheme = newTheme;
+}
+
+function launch_details_function(e) {
+    SelectedObject = e.data;
+    alert("Hello!");
+    app.navigate("views/details.html", "slide");
 }
 
 (function () {

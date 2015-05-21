@@ -41,6 +41,7 @@ function setTagValues(callback) {
 
                 //set icon for all objects -- probably be a better way to do this... 
                 for (var i = 0; i < tagObjets.length; i++) {
+                    tagObjets[i].ClassType = "Tag";
                     tagObjets[i].Icon_URL = "./Images/" + tagObjets[i].Classification + ".png";
                 };
 
@@ -53,8 +54,8 @@ function setTagValues(callback) {
                         pbsItemTags: tagObjets,
                         children: JSON.parse(localStorage.getItem('childObjects')),
                         details_tag: function (e) {
-                            SelectedTag = e.data;
-                            app.navigate("views/tagDetails.html", "slide");
+                            SelectedObject = e.data;
+                            app.navigate("views/details.html", "slide");
 
                         }
                     });
