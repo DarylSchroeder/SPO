@@ -57,20 +57,38 @@ div.detailsPage
 
 div.mainScreenDiv
 {
-    margin: 5px; 
+    margin: 2%; 
     background-color: rgba(0,0,0,0.10); 
     float: left; 
     min-width: 250px; 
-    width: auto;
-    min-height: 210px;
+    width: 45%;
+    height:220px;
 }
 
+label.mainScreenDivHeaderLabel
+{
+    margin:5px;
+    margin-top:5px;
+    display:inline-block;
+}
+
+div.mainScreenDivHeader
+{
+    background-color: rgba(0,0,0,0.20);
+    height:25px;    
+
+}
+div.mainScreenDivContent
+{
+    margin:5px;
+    
+}
 span.pageTitle
 {
-    color:#FFFFFFF;
+    color:white;
 }
 
 a:link
 {
-    color:#FFFFFFF;
+    color:white;
 }
