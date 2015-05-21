@@ -1,6 +1,5 @@
 {
   "CorePlugins": [
-    "com.wikitude.phonegap.WikitudePlugin@v4.1.0-3.1.0",
     "org.apache.cordova.battery-status",
     "org.apache.cordova.camera",
     "org.apache.cordova.console",
