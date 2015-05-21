@@ -41,7 +41,7 @@
 <script type="text/x-kendo-template" id="document-template">
     <a data-bind="click: file_doc">
         <div style="overflow: hidden;">
-            <img data-bind="attr: {src:Icon_URL}" id="logo" class="listViewIcon" onerror="if (this.src != './Images/defaultPBS.png') this.src = './Images/defaultPBS.png';" />
+            <img data-bind="attr: {src:Icon_URL}" id="logo" class="listViewIcon" onerror="this.src = './Images/defaultPBS.png';" />
             <div class="listViewTextMain" data-bind="text: Name"></div>
         </div>
     </a>

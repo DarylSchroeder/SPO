@@ -5,7 +5,7 @@
 <script type="text/x-kendo-template" id="pbs-template">
     <a data-bind="click: details_pbs">
         <div>        
-        	<img data-bind="attr: {src:Icon_URL}" id="logo" class="listViewIcon" onerror="if (this.src != './Images/defaultPBS.png') this.src = './Images/defaultPBS.png';"/>   
+        	<img data-bind="attr: {src:Icon_URL}" id="logo" class="listViewIcon" onerror="this.src = './Images/defaultPBS.png';"/>   
             <div class="listViewTextMain" data-bind="text: Name"></div>
             <div class="listViewTextSub" data-bind="text: Type"></div>
         </div>        

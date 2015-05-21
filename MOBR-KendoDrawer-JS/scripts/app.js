@@ -106,6 +106,16 @@ function launch_details_function(e) {
                     type: "everlive",
                     transport: {
                         typeName: "TaggedItem"
+                    },
+                    schema: {
+                        data: function (response) {
+                            tagObjects = response.Result;
+                            for (var i = 0; i < tagObjects.length; i++) {
+                                tagObjects[i].ClassType = "Tag";
+                                tagObjects[i].Icon_URL = "./Images/" + tagObjects[i].Type + ".png";
+                            };
+                            return tagObjects;
+                        }
                     }
                 })
             }
