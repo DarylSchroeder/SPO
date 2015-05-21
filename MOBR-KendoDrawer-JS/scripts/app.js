@@ -59,7 +59,6 @@ function toggleTheme() {
 
 function launch_details_function(e) {
     SelectedObject = e.data;
-    alert("Hello!");
     app.navigate("views/details.html", "slide");
 }
 

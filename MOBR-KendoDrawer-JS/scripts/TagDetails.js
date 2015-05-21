@@ -1,5 +1,4 @@
 function setTaggedItemValues(callback) {
-    alert("Entered the tagged item values.");
     // -- build up the query for children -- 
     var expandDocuments = {
         "TagDocument": true
