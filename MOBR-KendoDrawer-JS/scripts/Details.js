@@ -78,7 +78,6 @@ function showDetails() {
 }
 
 function setItemValues(callback) {
-    alert(JSON.stringify(SelectedObject.ClassType));
     if (SelectedObject.ClassType == "Observation Report")
     {
         setObservationReportItemValues(callback);
@@ -115,7 +114,6 @@ function setObservationReportItemValues(callback) {
 }
 
 function setPBSItemValues(callback) {
-    alert("Hello!");
     // -- build up the query for children -- 
     var expandChildren = {
         "Children": true
