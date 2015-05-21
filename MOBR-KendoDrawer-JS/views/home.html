@@ -23,29 +23,31 @@
         <div class="mainScreenDivContent">
             <table style="width: 90%; max-height:90%; table-layout: fixed; margin:5px; ">
                 <tr>
-                    <td width="40%">
+                    <td height="40%">
                         <div >
-                            <img src="Images/ArrowKnockout.svg" style="max-width:100%;max-height:50%;" />
+                            <img src="Images/ArrowKnockout.svg" style="max-height:160px; max-width:95%;" />
                         </div>
                     </td>
                     <td width="60%">
-                        <table>
-                            <tr>
-                                <td>
-                                    <div style="float:left" data-bind="text: distance"></div><label style="float: left; margin-left:5px;"> meters away</label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div style="float:left" data-bind="text: tag.Name"></div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label style="overflow: hidden;text-overflow: ellipsis; max-width:35%;white-space: nowrap;display:block;" data-bind="text: description"></label>
-                                </td>
-                            </tr>
-                        </table>
+                        <div>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <div style="float:left" data-bind="text: distance"></div><label style="float: left; margin-left:5px;"> meters away</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div style="float:left" data-bind="text: tag.Name"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label style="overflow: hidden;text-overflow: ellipsis; max-width:35%;white-space: nowrap;display:block;" data-bind="text: description"></label>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
                     </td>
                 </tr>
 
