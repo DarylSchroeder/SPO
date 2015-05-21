@@ -98,9 +98,14 @@ function setObservationReportItemValues(callback) {
                     header3: "Status",
                     subItem3: SelectedObject.Status,
                     header4: "Description",
-                    subItem4: SelectedObject.Description
+                    subItem4: SelectedObject.Description,
+                    list1: [],
+                    list2: [],
+                    list3: [],
+                    list4: [],
+                    list5: [],
+                    documentList: []
                 });
 
-    alert(JSON.stringify(observationItem.name));
     callback(observationItem);
 }

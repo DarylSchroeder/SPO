@@ -56,7 +56,7 @@ function setTagValues(callback) {
                         details_tag: function (e) {
                             SelectedObject = e.data;
                             app.navigate("views/details.html", "slide");
-
+                            showDetails();
                         }
                     });
                 //console.log(pbsItem);

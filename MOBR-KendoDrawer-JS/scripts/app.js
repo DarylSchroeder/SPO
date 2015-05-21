@@ -60,6 +60,7 @@ function toggleTheme() {
 function launch_details_function(e) {
     SelectedObject = e.data;
     app.navigate("views/details.html", "slide");
+    showDetails();
 }
 
 (function () {
