@@ -89,16 +89,17 @@ function launch_details_function(e) {
                     },
                     schema: {
                         data: function (response) {
-                            return response.Result;
+                            pbsObjects = response.Result;
+                            for (var i = 0; i < pbsObjects.length; i++) {
+                                pbsObjects[i].ClassType = "PBS";
+                                pbsObjects[i].Icon_URL = "./Images/" + pbsObjects[i].Type + ".png";
+                            };
+                            return pbsObjects;
                         }
                     }
                 }),
 
-                details_pbs: function (e) {
-                    SelectedPBS = e.data;
-                    app.navigate("views/pbsItemDetails.html", "slide");
-
-                }
+                details_pbs: launch_details_function
             },
             tags: {
                 ds: new kendo.data.DataSource({
