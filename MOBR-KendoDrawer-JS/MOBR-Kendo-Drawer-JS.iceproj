@@ -31,6 +31,7 @@
     <Content Include="Images\Area.png">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Images\ArrowKnockout.svg" />
     <Content Include="Images\BV.png">
       <SubType>Content</SubType>
     </Content>
@@ -59,9 +60,16 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="index.html" />
+    <Content Include="scripts\home.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="scripts\ObservationReport.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="scripts\queryHandler.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="styles\common.css" />
     <Content Include="views\details.html" />
     <Content Include="views\tagDetails.html">
       <SubType>Content</SubType>
@@ -122,10 +130,8 @@
     <Content Include="scripts\app.js" />
     <Content Include="scripts\PBSHandler.js" />
     <Content Include="scripts\TagDetails.js" />
-    <Content Include="styles\main.css" />
     <Content Include="styles\theme_glacier.css" />
     <Content Include="styles\theme_shadow.css" />
-    <Content Include="views\dataTemplates.html" />
     <Content Include="views\home.html" />
     <Content Include="views\PBS.html" />
     <Content Include="views\pbsItemDetails.html" />

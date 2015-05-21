@@ -1,3 +1,4 @@
+
 var currentTheme = "glacier";
 var SelectedPBS;
 var SelectedTag;
@@ -8,9 +9,9 @@ var app;
 
 
 //creates a chart on the canvas object.
-function populateChart(closed, open) {
-    var pieData = [{ value: closed, color: "#F38630", label: 'Closed', labelColor: 'white', labelFontSize: '16' },
-        		   { value: open, color: "#F34353", label: 'Open', labelColor: 'white', labelFontSize: '16' }];
+function populateChart() {
+    var pieData = [{ value: window.APP.models.home.observationsClosed, color: "#F38630", label: 'Closed', labelColor: 'white', labelFontSize: '16' },
+        		   { value: window.APP.models.home.observationsOpen, color: "#F34353", label: 'Open', labelColor: 'white', labelFontSize: '16' }];
     var myPie = new Chart(document.getElementById("canvas").getContext("2d")).Pie(pieData, {
         animationSteps: 100,
         animationEasing: 'easeInOutQuart'
@@ -19,10 +20,26 @@ function populateChart(closed, open) {
 
 //chain the 2 expansions together to get Closed & open statuses, use callbacks to ensure correct ordering, then populate chart.
 function loadchart() {
-	//getChartValues(populateChart);
     QueryCountByProperty("ObservationReport", "Status", "Closed", function (e) {
         QueryCountByProperty("ObservationReport", "Status", "Open", function (f)
-        { populateChart(e, f); })
+        {
+            window.APP.models.home.observationsClosed = e;
+            window.APP.models.home.observationsOpen = f;
+
+            document.getElementById("observationClosed").textContent = e;
+            document.getElementById("observationOpen").textContent = f;
+            
+            var NextObservation = kendo.observable({
+
+                distance: 25,
+                tag: { Name: '21-PA-413', Type: 'Pump' },
+                description: 'pump is leaking with residue situated underneath the rotation shaft'
+            });
+            //alert(JSON.stringify(NextObservation));
+            kendo.bind($("div"), NextObservation);
+
+            populateChart();
+        })
     });
 }
 
@@ -48,23 +65,21 @@ function launch_details_function(e) {
 
 (function () {
 
-    // store a reference to the application object that will be created
-    // later on so that we can use it if need be
-
-
-
     // create an object to store the models for each view
     window.APP = {
         models: {
             home: {
-                title: 'Home'
-
+                title: 'Home',
+                observationsOpen: {},
+                observationsClosed: {}                
             },
             settings: {
                 title: 'Settings'
             },
             pbs: {
                 title: 'PBS',
+
+               
                 ds: new kendo.data.DataSource({
                     transport: {
                         read: {
@@ -92,18 +107,7 @@ function launch_details_function(e) {
                         typeName: "TaggedItem"
                     }
                 })
-            },
-            reportView: {
-
-                closed: function () {
-                    return QueryCountByProperty("ObservationReport", "Status", "Closed");
-                },
-                open: function () {
-                    return QueryCountByProperty("ObservationReport", "Status", "Open");
-                }
-
             }
-
         }
     };
 

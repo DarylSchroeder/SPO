@@ -1,8 +1,96 @@
 <div data-role="view" data-title="Observation Reporting" data-layout="main" data-model="APP.models.home" data-show="loadchart">
-    <div style="margin:5px;background-color:rgba(0,0,0,0.05); float:left;" >
-        <div style="margin:5px">           
-            <span>Report Status</span><br/>
-            <canvas id="canvas" height="auto" width="180" ></canvas>            
+    <div class="mainScreenDiv">
+        <div class="mainScreenDivHeader">
+            <div>
+                <label class="mainScreenDivHeaderLabel">Report Status</label>
+            </div>
+        </div>
+        <div class="mainScreenDivContent">
+            <canvas id="canvas" height="150" width="auto"></canvas>
+            <div style="float:right">
+                <label>Open:</label> <div style="float: right; margin-left: 5px;" id="observationOpen"></div><br />
+                <label>Closed:</label><div style="float:right; margin-left:5px;" id="observationClosed"></div>
+            </div>
         </div>
     </div>
-</div>
+
+
+    <div class="mainScreenDiv" id="nextObservation">
+            <div class="mainScreenDivHeader">
+                <label class="mainScreenDivHeaderLabel">Navigate to Next Observation</label>
+            </div>
+
+        <div class="mainScreenDivContent">
+            <table style="width: 90%; max-height:90%; table-layout: fixed; margin:5px; ">
+                <tr>
+                    <td height="40%">
+                        <div >
+                            <img src="Images/ArrowKnockout.svg" style="max-height:160px; max-width:95%;" />
+                        </div>
+                    </td>
+                    <td width="60%">
+                        <div>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <div style="float:left" data-bind="text: distance"></div><label style="float: left; margin-left:5px;"> meters away</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div style="float:left" data-bind="text: tag.Name"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label style="overflow: hidden;text-overflow: ellipsis; max-width:35%;white-space: nowrap;display:block;" data-bind="text: description"></label>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+
+
+
+            </table>
+
+
+        </div>
+
+
+    </div>
+
+
+    <div class="mainScreenDiv" id="nextObservation">
+        <div class="mainScreenDivHeader">
+            <label class="mainScreenDivHeaderLabel">Other</label>
+        </div>
+        <div class="mainScreenDivContent">
+
+        </div>
+    </div>
+    <div class="mainScreenDiv" id="nextObservation">
+        <div class="mainScreenDivHeader">
+            <label class="mainScreenDivHeaderLabel">Browse</label>
+        </div>
+        <div class="mainScreenDivContent">
+
+        </div>
+    </div>
+    <div class="mainScreenDiv" id="nextObservation">
+        <div class="mainScreenDivHeader">
+            <label class="mainScreenDivHeaderLabel">Recent</label>
+        </div>
+        <div class="mainScreenDivContent">
+
+        </div>
+    </div>
+    <div class="mainScreenDiv" id="nextObservation">
+        <div class="mainScreenDivHeader">
+            <label class="mainScreenDivHeaderLabel">Other</label>
+        </div>
+        <div class="mainScreenDivContent">
+
+        </div>
+    </div>

@@ -1,48 +1,6 @@
-body {
-}
-.km-drawer-button:before, .km-drawer-button:after  { content: "\E077"; }
 
+@import "common.css";
 
-
-img.listViewIcon
-{
-    width: 32px;
-    float: left;
-    height: 32px;
-}
-div.listViewTextMain
-{
-    font-weight: bold;
-    margin-left:40px;
-}
-div.listViewTextSub
-{
-    font-size:75%;
-    margin-left:40px;
-}
-div
-{
-    color:white;
-}
-
-div.Header1
-{
-    font-size: 250%;
-    font-weight: bold;
-}
-
-div.Header2
-{
-    font-size: 150%;
-    font-weight: bold;
-}
-
-div.SubItem
-{
-    font-size:75%;
-    font-style:italic;
-    margin-left:25px;
-}
 
 #grad
 { 
@@ -56,14 +14,4 @@ body
 #appDrawer
 { 
     background:  linear-gradient(to bottom, rgba(43,72,74,1) 0%, rgba(3,3,2,1) 100%);
-}
-
-span.pageTitle
-{
-    color:white;
-}
-
-a:link
-{
-    color:white;
 }
