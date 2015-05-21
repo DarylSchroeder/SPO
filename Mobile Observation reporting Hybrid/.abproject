@@ -5,7 +5,7 @@
   "AppIdentifier": "com.telerik.MobileObservationreportingHybrid",
   "DisplayName": "Mobile Observation reporting Hybrid",
   "Author": "",
-  "Description": "Mobile Observation reporting Hybrid",
+  "Description": "",
   "BundleVersion": "1.0",
   "AndroidVersionCode": "1",
   "iOSDeviceFamily": [
@@ -43,7 +43,6 @@
     "ID_RESOLUTION_HD720P"
   ],
   "CorePlugins": [
-    "com.wikitude.phonegap.WikitudePlugin@v4.1.0-3.0.1",
     "org.apache.cordova.network-information"
   ]
 }
