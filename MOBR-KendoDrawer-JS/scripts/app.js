@@ -43,6 +43,22 @@ function loadchart() {
     });
 }
 
+function refreshFilter() {
+    var query = location.href;
+    var filterString = query.split("?")[1].split("=")[1];
+    var dataSource = window.APP.models.pbs.ds;
+    dataSource.fetch().then(function () {
+        dataSource.filter({ field: "Type", operator: "startswith", value: filterString });
+    });
+}
+
+function clearPBS() {
+    var dataSource = window.APP.models.pbs.ds;
+    dataSource.fetch().then(function () {
+        dataSource.filter({ field: "Junk", operator: "startswith", value: "" });
+    });
+}
+
 function toggleTheme() {
     var themes = ["glacier", "shadow"];
     for (var i = 0; i < themes.length; i++) {
@@ -64,6 +80,22 @@ function launch_details_function(e) {
 }
 
 (function () {
+
+    function filterPBS() {
+        alert("Hello!");
+        pbsFilterObjects = [];
+        var query = window.location.href;
+        var filterString = query.split("?")[1].split("=")[1];
+        alert(JSON.stringify(filterString));
+        for (var i = 0; i < pbsObjects.length; i++) {
+            if (pbsObjects[i].Type == filterString) {
+                pbsFilterObjects.push(pbsObjects[i]);
+            }
+        }
+
+        alert(JSON.stringify(pbsFilterObjects.length))
+        return pbsFilterObjects;
+    };
 
     // create an object to store the models for each view
     window.APP = {
@@ -94,6 +126,7 @@ function launch_details_function(e) {
                                 pbsObjects[i].ClassType = "PBS";
                                 pbsObjects[i].Icon_URL = "./Images/" + pbsObjects[i].Type + ".png";
                             };
+                            //pbsFilteredObjects = filterPBS(pbsObjects);
                             return pbsObjects;
                         }
                     }
@@ -121,8 +154,6 @@ function launch_details_function(e) {
             }
         }
     };
-
-
 
     // this function is called by Cordova when the application is loaded by the device
     document.addEventListener('deviceready', function () {
