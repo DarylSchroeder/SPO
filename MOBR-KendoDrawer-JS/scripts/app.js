@@ -1,7 +1,5 @@
 
 var currentTheme = "glacier";
-var SelectedPBS;
-var SelectedTag;
 var SelectedObject;
 var apiKey = "Hro5ZCMacvvdbWuA";
 var el = new Everlive(apiKey);
@@ -52,10 +50,13 @@ function refreshFilter() {
     });
 }
 
-function clearPBS() {
-    var dataSource = window.APP.models.pbs.ds;
+function refreshReportFilter() {
+    var query = location.href;
+    var filterType = query.split("?")[1].split("&")[0].split("=")[1];
+    var filterString = query.split("?")[1].split("&")[1].split("=")[1];
+    var dataSource = window.APP.models.observation_reports.ds;
     dataSource.fetch().then(function () {
-        dataSource.filter({ field: "Junk", operator: "startswith", value: "" });
+        dataSource.filter({ field: filterType, operator: "startswith", value: filterString });
     });
 }
 
@@ -80,22 +81,6 @@ function launch_details_function(e) {
 }
 
 (function () {
-
-    function filterPBS() {
-        alert("Hello!");
-        pbsFilterObjects = [];
-        var query = window.location.href;
-        var filterString = query.split("?")[1].split("=")[1];
-        alert(JSON.stringify(filterString));
-        for (var i = 0; i < pbsObjects.length; i++) {
-            if (pbsObjects[i].Type == filterString) {
-                pbsFilterObjects.push(pbsObjects[i]);
-            }
-        }
-
-        alert(JSON.stringify(pbsFilterObjects.length))
-        return pbsFilterObjects;
-    };
 
     // create an object to store the models for each view
     window.APP = {
@@ -126,13 +111,36 @@ function launch_details_function(e) {
                                 pbsObjects[i].ClassType = "PBS";
                                 pbsObjects[i].Icon_URL = "./Images/" + pbsObjects[i].Type + ".png";
                             };
-                            //pbsFilteredObjects = filterPBS(pbsObjects);
+
                             return pbsObjects;
                         }
                     }
                 }),
 
                 details_pbs: launch_details_function
+            },
+            observation_reports: {
+                ds: new kendo.data.DataSource({
+                    transport: {
+                        read: {
+                            url: "https://api.everlive.com/v1/" + apiKey + "/ObservationReport",
+                            datatype: "jsonp"
+                        }
+                    },
+                    schema: {
+                        data: function (response) {
+                            reportObjects = response.Result;
+                            for (var i = 0; i < reportObjects.length; i++) {
+                                reportObjects[i].ClassType = "Observation Report";
+                                reportObjects[i].Icon_URL = "./Images/ReportType/IM_SPO_Damage_" + reportObjects[i].Type + ".png";
+                            };
+
+                            return reportObjects;
+                        }
+                    }
+                }),
+
+                launch_details: launch_details_function
             },
             tags: {
                 ds: new kendo.data.DataSource({

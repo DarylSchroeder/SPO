@@ -38,6 +38,7 @@ function setTaggedItemValues(callback) {
                      //set icon for all objects -- probably be a better way to do this... 
                      for (var i = 0; i < reportObjects.length; i++) {
                          reportObjects[i].ClassType = "Observation Report";
+                         reportObjects[i].Icon_URL = "./Images/ReportType/IM_SPO_Damage_" + reportObjects[i].Type + ".png";
                      };
 
                      localStorage.setItem('reportObjects', JSON.stringify(reportObjects));
@@ -100,11 +101,11 @@ function setItemValues(callback) {
         setTaggedItemValues(callback);
     }
     else if (SelectedObject.ClassType == "PBS") {
-        setPBSItemValues(callback);
+        setPBSItemValues2(callback);
     }
 }
 
-function setObservationReportItemValues(callback) {   
+function setObservationReportItemValues(callback) {
     observationItem =
                 ({
                     name: SelectedObject.Name,
@@ -128,24 +129,45 @@ function setObservationReportItemValues(callback) {
 }
 
 function setPBSItemValues(callback) {
+    // create the item for binding purposes. 
+    pbsItem =
+        ({
+            name: SelectedObject.Name,
+            header1: "Type",
+            subItem1: SelectedObject.Type,
+            Icon_URL: "./Images/" + SelectedObject.Type + ".png",
+            launch_details: launch_details_function,
+            list1: [],
+            list2: [],
+            list3: [],
+            list4: [],
+            list5: [],
+            documentList: []
+        });
+
+
+
+    callback(pbsItem);
+}
+
+function setPBSItemValues2(callback) {
     // -- build up the query for children -- 
-    var expandChildren = {
-        "Children": true
+    var expandReports = {
+        "PBSObservation": true
     };
-    var queryChildren = new Everlive.Query();
-    queryChildren.expand(expandChildren);
-    var childData = el.data("PBSLevel");
-    childObjects = [];
-    localStorage.setItem('childObjects', JSON.stringify(childObjects));
-    childData.expand(expandChildren).getById(SelectedObject.Id)
-        .then(function (childData) {
-            //alert(JSON.stringify(childData.result.Children));
-            childObjects = childData.result.Children;
-            for (var i = 0; i < childObjects.length; i++) {
-                childObjects[i].ClassType = "PBS";
-                childObjects[i].Icon_URL = "./Images/" + childObjects[i].Type + ".png";
+    var queryReports = new Everlive.Query();
+    queryReports.expand(expandReports);
+    var reportData = el.data("PBSLevel");
+    reportObjects = [];
+    localStorage.setItem('reportObjects', JSON.stringify(reportObjects));
+    reportData.expand(expandReports).getById(SelectedObject.Id)
+        .then(function (reportData) {
+            reportObjects = reportData.result.PBSObservation;
+            for (var i = 0; i < reportObjects.length; i++) {
+                reportObjects[i].ClassType = "Observation Report";
+                reportObjects[i].Icon_URL = "./Images/ReportType/IM_SPO_Damage_" + reportObjects[i].Type + ".png";
             };
-            localStorage.setItem('childObjects', JSON.stringify(childObjects));
+            localStorage.setItem('reportObjects', JSON.stringify(reportObjects));
         },
         function (error) {
             console.log(JSON.stringify(error));
@@ -167,7 +189,7 @@ function setPBSItemValues(callback) {
             localStorage.setItem('tagObjects', JSON.stringify(tagObjects));
             data.expand(expandTags).getById(SelectedObject.Id)
                 .then(function (data) {
-                    tagObjects = data.result.PBSItemTag; //JSON.parse(retrievedObject);
+                    tagObjects = data.result.PBSItemTag;
 
                     //set icon for all objects -- probably be a better way to do this... 
                     for (var i = 0; i < tagObjects.length; i++) {
@@ -190,17 +212,16 @@ function setPBSItemValues(callback) {
                             header1: "Type",
                             subItem1: SelectedObject.Type,
                             Icon_URL: "./Images/" + SelectedObject.Type + ".png",
-                            listHeader1: "Tags",
-                            list1: JSON.parse(localStorage.getItem('tagObjects')),
-                            listHeader2: "Children",
-                            list2: JSON.parse(localStorage.getItem('childObjects')),
+                            listHeader1: "Reports",
+                            list1: JSON.parse(localStorage.getItem('reportObjects')),
+                            listHeader2: "Tags",
+                            list2: JSON.parse(localStorage.getItem('tagObjects')),
                             launch_details: launch_details_function,
                             list3: [],
                             list4: [],
                             list5: [],
                             documentList: []
                         });
-                    //console.log(pbsItem);
 
 
 

@@ -1,4 +1,4 @@
-<div data-role="view" data-title="Details" data-layout="main" data-reload="true">
+<div data-role="view" data-title="Details" data-layout="main" data-reload="true" data-show="showDetails">
     <div id="detailsContent" class="detailsPage">
         <div class="Header1" data-bind="text: name"></div>
         <div class="Header2" data-bind="text: header1"></div>
@@ -42,15 +42,6 @@
     <a data-bind="click: file_doc">
         <div style="overflow: hidden;">
             <img data-bind="attr: {src:Icon_URL}" id="logo" class="listViewIcon" onerror="this.src = './Images/defaultPBS.png';" />
-            <div class="listViewTextMain" data-bind="text: Name"></div>
-        </div>
-    </a>
-</script>
-
-<script type="text/x-kendo-template" id="details-template">
-    <a data-bind="click: launch_details">
-        <div style="overflow: hidden;">
-            <img data-bind="attr: { src: Icon_URL }" id="logo" class="listViewIcon" onerror="this.src = './Images/defaultTag.png';" />
             <div class="listViewTextMain" data-bind="text: Name"></div>
         </div>
     </a>

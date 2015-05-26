@@ -67,10 +67,10 @@
                   <a data-icon="contacts" class="drawerBodyListText" href="views/PBS.html?filter=Discipline">Discipline</a>
               </li>
               <li>
-                  <a data-icon="recents" class="drawerBodyListText" href="views/PBS.html">Prioirty</a>
+                  <a data-icon="recents" class="drawerBodyListText" href="views/Priority.html">Prioirty</a>
               </li>
               <li>
-                  <a data-icon="share" class="drawerBodyListText" href="views/PBS.html">Type</a>
+                  <a data-icon="share" class="drawerBodyListText" href="views/Type.html">Type</a>
               </li>
               <li>
                   <div style="margin-left:-10px; margin-right:-20px;" id="drawerHead">
@@ -87,6 +87,14 @@
   </div>   
     
     <!--<a data-icon="globe" class="drawerBodyListText" href="views/PBS.html?filter=Area">Area</a>-->
+    <script type="text/x-kendo-template" id="details-template">
+        <a data-bind="click: launch_details">
+            <div style="overflow: hidden;">
+                <img data-bind="attr: { src: Icon_URL }" id="logo" class="listViewIcon" onerror="this.src = './Images/defaultTag.png';" />
+                <div class="listViewTextMain" data-bind="text: Name"></div>
+            </div>
+        </a>
+    </script>
 
 </body>
 </html>
