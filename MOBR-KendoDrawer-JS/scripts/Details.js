@@ -1,3 +1,23 @@
+function launch_documents(e) {
+    SelectedDoc = e.data;
+
+    var expandFiles = {
+        "DocumentFile": true
+    };
+    var queryFiles = new Everlive.Query();
+    queryFiles.expand(expandFiles);
+    var fileData = el.data("Documents");
+    fileData.expand(expandFiles).getById(SelectedDoc.Id)
+        .then(function (fileData) {
+            fileObjects = fileData.result.DocumentFile;
+            el.Files.getDownloadUrlById(fileObjects.Id)
+            .then(function(fileUrl) {
+                alert(JSON.stringify(fileUrl));
+                window.open(fileUrl, "_system");
+            });
+        })
+}
+
 function setTaggedItemValues(callback) {
     // -- build up the query for children -- 
     var expandDocuments = {
@@ -59,21 +79,7 @@ function setTaggedItemValues(callback) {
                             list3: [],
                             list4: [],
                             list5: [],
-                            file_doc: function (e) {
-                                SelectedDoc = e.data;
-
-                                var expandFiles = {
-                                    "DocumentFile": true
-                                };
-                                var queryFiles = new Everlive.Query();
-                                queryFiles.expand(expandFiles);
-                                var fileData = el.data("Documents");
-                                fileData.expand(expandFiles).getById(SelectedDoc.Id)
-                                    .then(function (fileData) {
-                                        fileObjects = fileData.result.DocumentFile;
-                                        window.open("https://bs3.cdn.telerik.com/v1/Hro5ZCMacvvdbWuA/" + fileObjects.Id, "_system");
-                                    })
-                            }
+                            file_doc: launch_documents
                         });
 
                     callback(taggedItem);
@@ -106,7 +112,26 @@ function setItemValues(callback) {
 }
 
 function setObservationReportItemValues(callback) {
-    observationItem =
+    // -- build up the query for children -- 
+    var expandDocuments = {
+        "Pictures": true
+    };
+    var queryDocuments = new Everlive.Query();
+    queryDocuments.expand(expandDocuments);
+    var documentData = el.data("ObservationReport");
+    
+    docObjects = [];
+    localStorage.setItem('docObjects', JSON.stringify(docObjects));
+    documentData.expand(expandDocuments).getById(SelectedObject.Id)
+        .then(function (documentData) {
+            docObjects = documentData.result.Pictures.sort(compareObjectsByName);
+            localStorage.setItem('docObjects', JSON.stringify(docObjects));
+        },
+            function (error) {
+                console.log(JSON.stringify(error));
+            })
+         .then(function () {
+             observationItem =
                 ({
                     name: SelectedObject.Name,
                     header1: "Type",
@@ -122,10 +147,13 @@ function setObservationReportItemValues(callback) {
                     list3: [],
                     list4: [],
                     list5: [],
-                    documentList: []
+                    documentListHeader: "Pictures",
+                    documentList: JSON.parse(localStorage.getItem('docObjects')),
+                    file_doc: launch_documents
                 });
 
-    callback(observationItem);
+             callback(observationItem);
+         });
 }
 
 function setPBSItemValues(callback) {
@@ -228,4 +256,5 @@ function setPBSItemValues2(callback) {
                     callback(pbsItem);
                 });
         });
+
 }

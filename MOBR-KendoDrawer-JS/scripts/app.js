@@ -1,6 +1,7 @@
 
 var currentTheme = "glacier";
 var SelectedObject;
+var SelectedDoc;
 var apiKey = "Hro5ZCMacvvdbWuA";
 var el = new Everlive(apiKey);
 var app;
