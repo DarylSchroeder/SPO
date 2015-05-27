@@ -12,7 +12,6 @@ function launch_documents(e) {
             fileObjects = fileData.result.DocumentFile;
             el.Files.getDownloadUrlById(fileObjects.Id)
             .then(function(fileUrl) {
-                alert(JSON.stringify(fileUrl));
                 window.open(fileUrl, "_system");
             });
         })
