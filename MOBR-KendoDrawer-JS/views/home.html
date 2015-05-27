@@ -6,10 +6,17 @@
             </div>
         </div>
         <div class="mainScreenDivContent">
-            <canvas id="canvas" height="150" width="auto"></canvas>
+            <canvas onclick="return launch_reports_from_event(event)"id="canvas" height="150" width="auto"></canvas>
             <div style="float:right">
-                <label>Open:</label> <div style="float: right; margin-left: 5px;" id="observationOpen"></div><br />
-                <label>Closed:</label><div style="float:right; margin-left:5px;" id="observationClosed"></div>
+                <a onclick="return launch_reports_from_string('Open')">
+                    <label>Open:</label> 
+                    <div style="float: right; margin-left: 5px;" id="observationOpen"></div>
+                </a>
+                <br />
+                <a onclick="return launch_reports_from_string('Closed')">
+                    <label>Closed:</label>
+                    <div style="float:right; margin-left:5px;" id="observationClosed"></div>
+                </a>
             </div>
         </div>
     </div>

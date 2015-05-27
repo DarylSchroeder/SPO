@@ -5,13 +5,14 @@ var SelectedDoc;
 var apiKey = "Hro5ZCMacvvdbWuA";
 var el = new Everlive(apiKey);
 var app;
+var myPie;
 
 
 //creates a chart on the canvas object.
 function populateChart() {
     var pieData = [{ value: window.APP.models.home.observationsClosed, color: "#F38630", label: 'Closed', labelColor: 'white', labelFontSize: '16' },
         		   { value: window.APP.models.home.observationsOpen, color: "#F34353", label: 'Open', labelColor: 'white', labelFontSize: '16' }];
-    var myPie = new Chart(document.getElementById("canvas").getContext("2d")).Pie(pieData, {
+    myPie = new Chart(document.getElementById("canvas").getContext("2d")).Pie(pieData, {
         animationSteps: 100,
         animationEasing: 'easeInOutQuart'
     });
@@ -81,6 +82,15 @@ function launch_details_function(e) {
     showDetails();
 }
 
+function launch_reports_from_event(e) {
+    var activePoints = myPie.getSegmentsAtEvent(e);
+    app.navigate("views/ObservationBreakdown.html?type=Status&filter=" + activePoints[0].label)
+}
+
+function launch_reports_from_string(str) {
+    app.navigate("views/ObservationBreakdown.html?type=Status&filter=" + str)
+}
+
 function compareObjectsByName(a, b) {
     if (a.Name > b.Name)
         return 1;
@@ -97,7 +107,7 @@ function compareObjectsByName(a, b) {
             home: {
                 title: 'Home',
                 observationsOpen: {},
-                observationsClosed: {}                
+                observationsClosed: {}
             },
             settings: {
                 title: 'Settings'
