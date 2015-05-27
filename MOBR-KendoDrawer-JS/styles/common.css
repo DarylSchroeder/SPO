@@ -7,6 +7,11 @@ img.listViewIcon
     float: left;
     height: 32px;
 }
+span.CountStyle
+{
+   float:right;
+   margin-right:50%;
+}
 div.listViewTextMain
 {
     font-weight: bold;
