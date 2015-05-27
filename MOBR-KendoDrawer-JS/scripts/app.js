@@ -80,6 +80,14 @@ function launch_details_function(e) {
     showDetails();
 }
 
+function compareObjectsByName(a, b) {
+    if (a.Name > b.Name)
+        return 1;
+    if (a.Name < b.Name)
+        return -1;
+    return 0;
+};
+
 (function () {
 
     // create an object to store the models for each view
@@ -106,7 +114,7 @@ function launch_details_function(e) {
                     },
                     schema: {
                         data: function (response) {
-                            pbsObjects = response.Result;
+                            pbsObjects = response.Result.sort(compareObjectsByName);
                             for (var i = 0; i < pbsObjects.length; i++) {
                                 pbsObjects[i].ClassType = "PBS";
                                 pbsObjects[i].Icon_URL = "./Images/" + pbsObjects[i].Type + ".png";
