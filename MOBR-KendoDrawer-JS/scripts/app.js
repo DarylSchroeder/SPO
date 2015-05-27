@@ -110,10 +110,6 @@ function launch_details_function(e) {
                             for (var i = 0; i < pbsObjects.length; i++) {
                                 pbsObjects[i].ClassType = "PBS";
                                 pbsObjects[i].Icon_URL = "./Images/" + pbsObjects[i].Type + ".png";
-                                if (pbsObjects[i].PBSObservation == undefined)
-                                    pbsObjects[i].Count = 0;
-                                else
-                                    pbsObjects[i].Count = pbsObjects[i].PBSObservation.length;
                             };
 
                             return pbsObjects;
