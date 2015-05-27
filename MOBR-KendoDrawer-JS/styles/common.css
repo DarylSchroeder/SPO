@@ -12,6 +12,11 @@ div.listViewTextMain
     font-weight: bold;
     margin-left:40px;
 }
+span.CountStyle
+{
+   float:right;
+   margin-right:50%;
+}
 div.listViewTextSub
 {
     font-size:75%;

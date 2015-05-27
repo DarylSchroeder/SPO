@@ -6,7 +6,10 @@
     <a data-bind="click: details_pbs">
         <div>        
         	<img data-bind="attr: {src:Icon_URL}" id="logo" class="listViewIcon" onerror="this.src = './Images/defaultPBS.png';"/>   
-            <div class="listViewTextMain" data-bind="text: Name"></div>
+            <div class="listViewTextMain">
+                <span data-bind="text: Name"></span>
+                <span class="CountStyle">Observation Reports: <span data-bind="text: Count"></span></span>
+            </div>
             <div class="listViewTextSub" data-bind="text: Type"></div>
         </div>        
     </a>
