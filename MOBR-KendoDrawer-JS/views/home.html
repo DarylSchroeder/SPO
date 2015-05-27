@@ -8,26 +8,24 @@
         <div class="mainScreenDivContent">
             <canvas id="canvas" height="150" width="auto"></canvas>
             <div style="float:right">
-                <label>Open:</label>
-                <div style="float: right; margin-left: 5px;" id="observationOpen"></div>
-                <br />
-                <label>Closed:</label>
-                <div style="float:right; margin-left:5px;" id="observationClosed"></div>
+                <label>Open:</label> <div style="float: right; margin-left: 5px;" id="observationOpen"></div><br />
+                <label>Closed:</label><div style="float:right; margin-left:5px;" id="observationClosed"></div>
             </div>
         </div>
     </div>
+
+
     <div class="mainScreenDiv" id="nextObservation">
-        <div class="mainScreenDivHeader">
-            <label class="mainScreenDivHeaderLabel">Navigate to Next Observation</label>
-        </div>
+            <div class="mainScreenDivHeader">
+                <label class="mainScreenDivHeaderLabel">Navigate to Next Observation</label>
+            </div>
+
         <div class="mainScreenDivContent">
             <table style="width: 90%; max-height:90%; table-layout: fixed; margin:5px; ">
                 <tr>
                     <td height="40%">
-                        <div>
-                            <a href="javascript:app.loadARchitectWorld( {'path': 'www/world/RangedPoiCloud/index.html', 'requiredFeatures': [ 'geo' ], 'startupConfiguration': {'camera_position': 'back' }, 'requiredExtension': 'ObtainPoiDataFromApplicationModel'}">
-                                <img src="Images/ArrowKnockout.svg" style="max-height:160px; max-width:95%;" />
-                            </a>
+                        <div >
+                            <img src="Images/ArrowKnockout.svg" style="max-height:160px; max-width:95%;" />
                         </div>
                     </td>
                     <td width="60%">
@@ -35,8 +33,7 @@
                             <table>
                                 <tr>
                                     <td>
-                                        <div style="float:left" data-bind="text: distance"></div>
-                                        <label style="float: left; margin-left:5px;"> meters away</label>
+                                        <div style="float:left" data-bind="text: distance"></div><label style="float: left; margin-left:5px;"> meters away</label>
                                     </td>
                                 </tr>
                                 <tr>
@@ -53,14 +50,24 @@
                         </div>
                     </td>
                 </tr>
+
+
+
             </table>
+
+
         </div>
+
+
     </div>
+
+
     <div class="mainScreenDiv" id="nextObservation">
         <div class="mainScreenDivHeader">
             <label class="mainScreenDivHeaderLabel">Other</label>
         </div>
         <div class="mainScreenDivContent">
+
         </div>
     </div>
     <div class="mainScreenDiv" id="nextObservation">
@@ -68,6 +75,7 @@
             <label class="mainScreenDivHeaderLabel">Browse</label>
         </div>
         <div class="mainScreenDivContent">
+
         </div>
     </div>
     <div class="mainScreenDiv" id="nextObservation">
@@ -75,6 +83,7 @@
             <label class="mainScreenDivHeaderLabel">Recent</label>
         </div>
         <div class="mainScreenDivContent">
+
         </div>
     </div>
     <div class="mainScreenDiv" id="nextObservation">
@@ -82,5 +91,6 @@
             <label class="mainScreenDivHeaderLabel">Other</label>
         </div>
         <div class="mainScreenDivContent">
+
         </div>
     </div>

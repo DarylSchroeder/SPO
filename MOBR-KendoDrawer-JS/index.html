@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <title></title>
@@ -16,14 +16,12 @@
     <script src="cordova.js"></script>
     <script src="kendo/js/jquery.min.js"></script>
     <script src="kendo/js/kendo.dataviz.mobile.min.js"></script>
-
+    <!--<script data-require="angular.js@*" data-semver="1.4.0-rc.2" src="https://code.angularjs.org/1.4.0-rc.2/angular.js"></script>
+    <script data-require="angular-route@*" data-semver="1.4.0-rc.2" src="https://code.angularjs.org/1.4.0-rc.2/angular-route.js"></script>-->
     <script src="scripts/app.js"></script>
     <script src="scripts/PBSHandler.js"></script>
-    <script src="scripts/TagDetails.js"></script>
+    <script src="scripts/Details.js"></script>
     <script src="scripts/queryHandler.js"></script>
-    
-    
-    <script src="scripts/loadingPoisFromApplicationModel.js"></script>
 </head>
 <body>
  
@@ -57,22 +55,22 @@
                   <a data-icon="home" class="drawerBodyListText" href="views/home.html">Home</a>
               </li>
               <li>
-                  <a data-icon="globe" class="drawerBodyListText" href="views/PBS.html">Area</a>
+                  <a data-icon="globe" class="drawerBodyListText" href="views/PBS.html?filter=Area">Area</a>
               </li>
               <li>
-                  <a data-icon="organize" class="drawerBodyListText" href="views/PBS.html">System</a>
+                  <a data-icon="organize" class="drawerBodyListText" href="views/PBS.html?filter=System">System</a>
               </li>
               <li>
-                  <a data-icon="mostviewed" class="drawerBodyListText" href="views/PBS.html">Unit</a>
+                  <a data-icon="mostviewed" class="drawerBodyListText" href="views/PBS.html?filter=Unit">Unit</a>
               </li>
               <li>
-                  <a data-icon="contacts" class="drawerBodyListText" href="views/PBS.html">Discipline</a>
+                  <a data-icon="contacts" class="drawerBodyListText" href="views/PBS.html?filter=Discipline">Discipline</a>
               </li>
               <li>
-                  <a data-icon="recents" class="drawerBodyListText" href="views/PBS.html">Prioirty</a>
+                  <a data-icon="recents" class="drawerBodyListText" href="views/Priority.html">Prioirty</a>
               </li>
               <li>
-                  <a data-icon="share" class="drawerBodyListText" href="views/PBS.html">Type</a>
+                  <a data-icon="share" class="drawerBodyListText" href="views/Type.html">Type</a>
               </li>
               <li>
                   <div style="margin-left:-10px; margin-right:-20px;" id="drawerHead">
@@ -88,6 +86,15 @@
           </ul>
   </div>   
     
+    <!--<a data-icon="globe" class="drawerBodyListText" href="views/PBS.html?filter=Area">Area</a>-->
+    <script type="text/x-kendo-template" id="details-template">
+        <a data-bind="click: launch_details">
+            <div style="overflow: hidden;">
+                <img data-bind="attr: { src: Icon_URL }" id="logo" class="listViewIcon" onerror="this.src = './Images/defaultTag.png';" />
+                <div class="listViewTextMain" data-bind="text: Name"></div>
+            </div>
+        </a>
+    </script>
 
 </body>
 </html>

@@ -158,6 +158,11 @@
     <Content Include="Images\Plant.png">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Images\ReportType\IM_SPO_Damage_Corrosion.png" />
+    <Content Include="Images\ReportType\IM_SPO_Damage_Crack.png" />
+    <Content Include="Images\ReportType\IM_SPO_Damage_Defective.png" />
+    <Content Include="Images\ReportType\IM_SPO_Damage_Leak.png" />
+    <Content Include="Images\ReportType\IM_SPO_Damage_Other.png" />
     <Content Include="index.html" />
     <Content Include="kendo\js\kendo.dataviz.mobile.min.js">
       <SubType>Content</SubType>
@@ -281,9 +286,7 @@
     </Content>
     <Content Include="styles\common.css" />
     <Content Include="views\details.html" />
-    <Content Include="views\tagDetails.html">
-      <SubType>Content</SubType>
-    </Content>
+    <Content Include="views\Type.html" />
     <Resource Include="App_Resources\Android\drawable-hdpi\icon.png" />
     <Resource Include="App_Resources\Android\drawable-ldpi\icon.png" />
     <Resource Include="App_Resources\Android\drawable-mdpi\icon.png" />
@@ -336,13 +339,13 @@
     <TypeScriptCompile Include="kendo\typescript\jquery.d.ts" />
     <TypeScriptCompile Include="kendo\typescript\kendo.mobile.d.ts" />
     <Content Include="scripts\app.js" />
-    <Content Include="scripts\PBSHandler.js" />
-    <Content Include="scripts\TagDetails.js" />
+    <Content Include="scripts\Details.js" />
     <Content Include="styles\theme_glacier.css" />
     <Content Include="styles\theme_shadow.css" />
     <Content Include="views\home.html" />
+    <Content Include="views\ObservationBreakdown.html" />
     <Content Include="views\PBS.html" />
-    <Content Include="views\pbsItemDetails.html" />
+    <Content Include="views\Priority.html" />
     <Content Include="views\settings.html" />
   </ItemGroup>
   <ItemGroup>
@@ -363,6 +366,7 @@
     <Folder Include="bower_components\chartjs\samples\" />
     <Folder Include="bower_components\chartjs\src\" />
     <Folder Include="Images\" />
+    <Folder Include="Images\ReportType\" />
     <Folder Include="kendo\" />
     <Folder Include="kendo\js\" />
     <Folder Include="kendo\styles\" />
