@@ -11,7 +11,7 @@ function setTaggedItemValues(callback) {
     localStorage.setItem('docObjects', JSON.stringify(docObjects));
     documentData.expand(expandDocuments).getById(SelectedObject.Id)
         .then(function (documentData) {
-                docObjects = documentData.result.TagDocument;
+                docObjects = documentData.result.TagDocument.sort(compareObjectsByName);
                 localStorage.setItem('docObjects', JSON.stringify(docObjects));
             },
             function (error) {
@@ -33,7 +33,7 @@ function setTaggedItemValues(callback) {
              // -- execute the query --
              data.expand(expandTags).getById(SelectedObject.Id)
                  .then(function (data) {
-                     reportObjects = data.result.TagToObservationReport;
+                     reportObjects = data.result.TagToObservationReport.sort(compareObjectsByName);
 
                      //set icon for all objects -- probably be a better way to do this... 
                      for (var i = 0; i < reportObjects.length; i++) {
@@ -162,7 +162,7 @@ function setPBSItemValues2(callback) {
     localStorage.setItem('reportObjects', JSON.stringify(reportObjects));
     reportData.expand(expandReports).getById(SelectedObject.Id)
         .then(function (reportData) {
-            reportObjects = reportData.result.PBSObservation;
+            reportObjects = reportData.result.PBSObservation.sort(compareObjectsByName);
             for (var i = 0; i < reportObjects.length; i++) {
                 reportObjects[i].ClassType = "Observation Report";
                 reportObjects[i].Icon_URL = "./Images/ReportType/IM_SPO_Damage_" + reportObjects[i].Type + ".png";
@@ -189,7 +189,7 @@ function setPBSItemValues2(callback) {
             localStorage.setItem('tagObjects', JSON.stringify(tagObjects));
             data.expand(expandTags).getById(SelectedObject.Id)
                 .then(function (data) {
-                    tagObjects = data.result.PBSItemTag;
+                    tagObjects = data.result.PBSItemTag.sort(compareObjectsByName);
 
                     //set icon for all objects -- probably be a better way to do this... 
                     for (var i = 0; i < tagObjects.length; i++) {

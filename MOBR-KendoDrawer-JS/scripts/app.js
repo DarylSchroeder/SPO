@@ -141,7 +141,7 @@ function compareObjectsByName(a, b) {
                     },
                     schema: {
                         data: function (response) {
-                            reportObjects = response.Result;
+                            reportObjects = response.Result.sort(compareObjectsByName);
                             for (var i = 0; i < reportObjects.length; i++) {
                                 reportObjects[i].ClassType = "Observation Report";
                                 reportObjects[i].Icon_URL = "./Images/ReportType/IM_SPO_Damage_" + reportObjects[i].Type + ".png";
@@ -162,7 +162,7 @@ function compareObjectsByName(a, b) {
                     },
                     schema: {
                         data: function (response) {
-                            tagObjects = response.Result;
+                            tagObjects = response.Result.sort(compareObjectsByName);
                             for (var i = 0; i < tagObjects.length; i++) {
                                 tagObjects[i].ClassType = "Tag";
                                 tagObjects[i].Icon_URL = "./Images/" + tagObjects[i].Type + ".png";
