@@ -18,6 +18,7 @@ function onLocationUpdated(position, reports) {
     //Severity
     //Type
 
+    alert("Hello! Hello! Hello!")
     alert(observation_reports);
     alert("Hello! Hello! Hello!")
     // creates dummy poi-data around given lat/lon
