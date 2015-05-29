@@ -122,6 +122,40 @@ function compareObjectsByName(a, b) {
     return 0;
 };
 
+// --- Wikitude Plugin ---
+// Use this method to load a specific ARchitect World from either the local file system or a remote server
+function urlLauncher(url) {
+    var world = {
+        "path": url,
+        "requiredFeatures": [
+            "2d_tracking",
+            "geo"
+        ],
+        "startupConfiguration": {
+            "camera_position": "back"
+        }
+    };
+    loadARchitectWorld(world);
+};
+            
+// This function gets called if you call "document.location = architectsdk://" in your ARchitect World
+function onUrlInvoke(url) {
+    if (url.indexOf('captureScreen') > -1) {
+        app.wikitudePlugin.captureScreen(
+            function (absoluteFilePath) {
+                alert("snapshot stored at:\n" + absoluteFilePath);
+            },
+            function (errorMessage) {
+                alert(errorMessage);
+            },
+            true, null
+        );
+    } else {
+        alert(url + "not handled");
+    }
+};
+            // --- End Wikitude Plugin ---,
+
 (function () {
 
     // create an object to store the models for each view
@@ -227,63 +261,7 @@ function compareObjectsByName(a, b) {
             transition: 'slide',
 
             // the application needs to know which view to load first
-            initial: 'views/home.html',
-            // --- Wikitude Plugin ---
-            // Use this method to load a specific ARchitect World from either the local file system or a remote server
-            loadARchitectWorld: function () {
-                // window.APP.wikitudePlugin = cordova.require("com.wikitude.phonegap.WikitudePlugin.WikitudePlugin");
-                // check if the current device is able to launch ARchitect Worlds
-                alert('here');
-                app.wikitudePlugin.isDeviceSupported(function () {
-                    app.wikitudePlugin.setOnUrlInvokeCallback(app.onUrlInvoke);
-                    // inject poi data using phonegap's GeoLocation API and inject data using World.loadPoisFromJsonData
-                    //if ( example.requiredExtension === "ObtainPoiDataFromApplicationModel" ) {
-                    navigator.geolocation.getCurrentPosition(onLocationUpdated, onLocationError);
-                    //}
-
-                    app.wikitudePlugin.loadARchitectWorld(function successFn(loadedURL) {
-                        /* Respond to successful world loading if you need to */
-                    }, function errorFn(error) {
-                        alert('Loading AR web view failed: ' + error);
-                    },
-                        '/www/views/world.html', ['geo'], {
-                            'camera_position': 'back'
-                        }
-                    );
-                }, function (errorMessage) {
-                    alert(errorMessage);
-                }, ['geo']);
-            },
-            urlLauncher: function (url) {
-                var world = {
-                    "path": url,
-                    "requiredFeatures": [
-                        "2d_tracking",
-                        "geo"
-                    ],
-                    "startupConfiguration": {
-                        "camera_position": "back"
-                    }
-                };
-                app.loadARchitectWorld(world);
-            },
-            // This function gets called if you call "document.location = architectsdk://" in your ARchitect World
-            onUrlInvoke: function (url) {
-                if (url.indexOf('captureScreen') > -1) {
-                    app.wikitudePlugin.captureScreen(
-                        function (absoluteFilePath) {
-                            alert("snapshot stored at:\n" + absoluteFilePath);
-                        },
-                        function (errorMessage) {
-                            alert(errorMessage);
-                        },
-                        true, null
-                    );
-                } else {
-                    alert(url + "not handled");
-                }
-            },
-            // --- End Wikitude Plugin ---,
+            initial: 'views/home.html'
         });
        
         app.wikitudePlugin = cordova.require("com.wikitude.phonegap.WikitudePlugin.WikitudePlugin");

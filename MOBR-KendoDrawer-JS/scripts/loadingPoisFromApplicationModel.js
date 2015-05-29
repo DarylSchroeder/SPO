@@ -47,7 +47,7 @@ function onLocationUpdated(position, reports) {
         }
 
         // inject POI data in JSON-format to JS
-        app.wikitudePlugin.callJavaScript("window.loadPoisFromJsonData(" + JSON.stringify(poiData) + ");");
+        app.wikitudePlugin.callJavaScript("World.loadPoisFromJsonData(" + JSON.stringify(poiData) + ");");
 	});
 }
 
