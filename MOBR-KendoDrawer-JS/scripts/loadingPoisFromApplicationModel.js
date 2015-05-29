@@ -18,32 +18,36 @@ function onLocationUpdated(position, reports) {
     //Severity
     //Type
 
-    alert("Hello! Hello! Hello!")
-    alert(observation_reports);
-    alert("Hello! Hello! Hello!")
-    // creates dummy poi-data around given lat/lon
-    for (var i = 0; i < observation_reports.length; i++) {
-        poiData.push({
-            'id': (i + 1),
-            'longitude': longitude + 0.001 * (5 - getRandomInt(1, 10)),
-            'latitude': latitude + 0.001 * (5 - getRandomInt(1, 10)),
-            'description': observation_reports[i].Description,
-            'altitude': 100.0,
-            'name': observation_reports[i].Name,
-            'obrtype': observation_reports[i].Type
-        })
+    alert("Hello! Hello! Hello!");
+    var dataSource = window.APP.models.observation_reports.ds;
+    dataSource.fetch().then(function () {
         
-        if (observation_reports[i].Type == 'Leak')
-            {
-        		alert('is leak');        
-            } else
-                {
-                    alert(observation_reports[i].Type);
-                }
-    }
+        alert(dataSource);
+        alert("Hello! Hello! Hello!");
+        // creates dummy poi-data around given lat/lon
+        for (var i = 0; i < dataSource.length; i++) {
+            poiData.push({
+                'id': (i + 1),
+                'longitude': longitude + 0.001 * (5 - getRandomInt(1, 10)),
+                'latitude': latitude + 0.001 * (5 - getRandomInt(1, 10)),
+                'description': dataSource[i].Description,
+                'altitude': 100.0,
+                'name': dataSource[i].Name,
+                'obrtype': dataSource[i].Type
+            })
 
-    // inject POI data in JSON-format to JS
-    app.wikitudePlugin.callJavaScript("window.loadPoisFromJsonData(" + JSON.stringify(poiData) + ");");
+            if (dataSource[i].Type == 'Leak')
+                {
+                    alert('is leak');        
+                } else
+                    {
+                        alert(dataSource[i].Type);
+                    }
+        }
+
+        // inject POI data in JSON-format to JS
+        app.wikitudePlugin.callJavaScript("window.loadPoisFromJsonData(" + JSON.stringify(poiData) + ");");
+	});
 }
 
 function onLocationError(error) {
