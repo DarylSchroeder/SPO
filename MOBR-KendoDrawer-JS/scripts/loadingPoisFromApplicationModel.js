@@ -22,26 +22,27 @@ function onLocationUpdated(position, reports) {
     var dataSource = window.APP.models.observation_reports.ds;
     dataSource.fetch().then(function () {
         
-        alert(JSON.stringify(dataSource));
+        var data = dataSource._data;
+        alert(JSON.stringify(data));
         alert("Hello! Hello! Hello!");
         // creates dummy poi-data around given lat/lon
-        for (var i = 0; i < dataSource.length; i++) {
+        for (var i = 0; i < data.length; i++) {
             poiData.push({
                 'id': (i + 1),
                 'longitude': longitude + 0.001 * (5 - getRandomInt(1, 10)),
                 'latitude': latitude + 0.001 * (5 - getRandomInt(1, 10)),
-                'description': dataSource[i].Description,
+                'description': data[i].Description,
                 'altitude': 100.0,
-                'name': dataSource[i].Name,
-                'obrtype': dataSource[i].Type
+                'name': data[i].Name,
+                'obrtype': data[i].Type
             })
 
-            if (dataSource[i].Type == 'Leak')
+            if (data[i].Type == 'Leak')
                 {
                     alert('is leak');        
                 } else
                     {
-                        alert(dataSource[i].Type);
+                        alert(data[i].Type);
                     }
         }
 
