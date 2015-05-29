@@ -124,6 +124,45 @@
     <Content Include="bower_components\chartjs\src\Chart.Radar.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="bower_components\everlive\.bower.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\everlive\.gitattributes">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\everlive\min\everlive.all.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\everlive\min\everlive.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\everlive\min\expandProcessor.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\everlive\min\jstimezonedetect.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\everlive\min\mingo.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\everlive\min\mongoQuery.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\everlive\min\reqwest.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\everlive\min\rsvp.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\everlive\min\underscore.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\everlive\min\uuid.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="bower_components\everlive\src\everlive.all.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="cordova.android.js" />
     <Content Include="cordova.ios.js" />
     <Content Include="cordova.wp8.js" />
@@ -275,17 +314,75 @@
     <Content Include="kendo\styles\Uniform\markers_2x.png">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Plugins\wikitude-cordova-plugin-4.1.0-3.0.1\.gitignore">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Plugins\wikitude-cordova-plugin-4.1.0-3.0.1\CHANGELOG.md">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Plugins\wikitude-cordova-plugin-4.1.0-3.0.1\LICENSE.md">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Plugins\wikitude-cordova-plugin-4.1.0-3.0.1\plugin.xml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Plugins\wikitude-cordova-plugin-4.1.0-3.0.1\README.md">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Plugins\wikitude-cordova-plugin-4.1.0-3.0.1\src\android\libs\wikitudesdk.jar">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Plugins\wikitude-cordova-plugin-4.1.0-3.0.1\src\android\WikitudePlugin.java">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Plugins\wikitude-cordova-plugin-4.1.0-3.0.1\src\ios\libWikitudeSDK.a">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Plugins\wikitude-cordova-plugin-4.1.0-3.0.1\src\ios\WikitudeSDK.h">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Plugins\wikitude-cordova-plugin-4.1.0-3.0.1\src\ios\WTArchitectView.h">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Plugins\wikitude-cordova-plugin-4.1.0-3.0.1\src\ios\WTArchitectViewDebugDelegate.h">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Plugins\wikitude-cordova-plugin-4.1.0-3.0.1\src\ios\WTARViewController.h">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Plugins\wikitude-cordova-plugin-4.1.0-3.0.1\src\ios\WTARViewController.m">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Plugins\wikitude-cordova-plugin-4.1.0-3.0.1\src\ios\WTNavigation.h">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Plugins\wikitude-cordova-plugin-4.1.0-3.0.1\src\ios\WTStartupConfiguration.h">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Plugins\wikitude-cordova-plugin-4.1.0-3.0.1\src\ios\WTWikitudePlugin.h">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Plugins\wikitude-cordova-plugin-4.1.0-3.0.1\src\ios\WTWikitudePlugin.m">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Plugins\wikitude-cordova-plugin-4.1.0-3.0.1\www\WikitudePlugin.js" />
+    <Content Include="scripts\ade.js" />
     <Content Include="scripts\home.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="scripts\limitingrange.js" />
+    <Content Include="scripts\loadingPoisFromApplicationModel.js" />
+    <Content Include="scripts\marker.js" />
     <Content Include="scripts\ObservationReport.js">
       <SubType>Content</SubType>
     </Content>
     <Content Include="scripts\queryHandler.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="scripts\radar.js" />
     <Content Include="styles\common.css" />
     <Content Include="views\details.html" />
+    <Content Include="views\world.html" />
     <Content Include="views\Type.html" />
     <Resource Include="App_Resources\Android\drawable-hdpi\icon.png" />
     <Resource Include="App_Resources\Android\drawable-ldpi\icon.png" />
@@ -365,6 +462,9 @@
     <Folder Include="bower_components\chartjs\docs\" />
     <Folder Include="bower_components\chartjs\samples\" />
     <Folder Include="bower_components\chartjs\src\" />
+    <Folder Include="bower_components\everlive\" />
+    <Folder Include="bower_components\everlive\min\" />
+    <Folder Include="bower_components\everlive\src\" />
     <Folder Include="Images\" />
     <Folder Include="Images\ReportType\" />
     <Folder Include="kendo\" />
@@ -384,6 +484,11 @@
     <Folder Include="kendo\styles\Uniform\" />
     <Folder Include="kendo\typescript\" />
     <Folder Include="Plugins\" />
+    <Folder Include="Plugins\wikitude-cordova-plugin-4.1.0-3.0.1\" />
+    <Folder Include="Plugins\wikitude-cordova-plugin-4.1.0-3.0.1\src\" />
+    <Folder Include="Plugins\wikitude-cordova-plugin-4.1.0-3.0.1\src\android\" />
+    <Folder Include="Plugins\wikitude-cordova-plugin-4.1.0-3.0.1\src\android\libs\" />
+    <Folder Include="Plugins\wikitude-cordova-plugin-4.1.0-3.0.1\src\ios\" />
     <Folder Include="scripts\" />
     <Folder Include="styles\" />
     <Folder Include="views\" />

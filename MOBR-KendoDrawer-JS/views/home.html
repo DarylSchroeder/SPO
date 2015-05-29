@@ -32,7 +32,9 @@
                 <tr>
                     <td height="40%">
                         <div >
-                            <img src="Images/ArrowKnockout.svg" style="max-height:160px; max-width:95%;" />
+                            <a href="javascript:alert(app.loadARchitectWorld);"> 
+                                <img src="Images/ArrowKnockout.svg" style="max-height:160px; max-width:95%;" />
+                            </a>
                         </div>
                     </td>
                     <td width="60%">
@@ -40,12 +42,16 @@
                             <table>
                                 <tr>
                                     <td>
-                                        <div style="float:left" data-bind="text: distance"></div><label style="float: left; margin-left:5px;"> meters away</label>
+                                        <a onclick="return app.loadARchitectWorld();">
+                                            <div style="float:left" data-bind="text: distance"></div><label style="float: left; margin-left:5px;"> meters away</label>
+                                        </a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <div style="float:left" data-bind="text: tag.Name"></div>
+                                        <a href="javascript:alert('test');">
+                                            <div style="float:left" data-bind="text: tag.Name"></div>
+                                        </a>
                                     </td>
                                 </tr>
                                 <tr>
@@ -101,3 +107,4 @@
 
         </div>
     </div>
+</div>
