@@ -22,7 +22,7 @@ function onLocationUpdated(position, reports) {
     var dataSource = window.APP.models.observation_reports.ds;
     dataSource.fetch().then(function () {
         
-        alert(dataSource);
+        alert(JSON.stringify(dataSource));
         alert("Hello! Hello! Hello!");
         // creates dummy poi-data around given lat/lon
         for (var i = 0; i < dataSource.length; i++) {
