@@ -6,8 +6,7 @@ function onLocationUpdated(position, reports) {
     var longitude = position.coords.longitude;
     var altitude = position.coords.altitude;
     var placesAmount = 10;
-    var poiData = [];
-    alert('here');
+
      //alert(position);
      //alert(observationReports);
 
@@ -18,36 +17,34 @@ function onLocationUpdated(position, reports) {
     //Severity
     //Type
 
-    alert("Hello! Hello! Hello!");
     var dataSource = window.APP.models.observation_reports.ds;
     dataSource.fetch().then(function () {
         
         var data = dataSource._data;
-        alert(JSON.stringify(data));
-        alert("Hello! Hello! Hello!");
+
         // creates dummy poi-data around given lat/lon
         for (var i = 0; i < data.length; i++) {
-            poiData.push({
-                'id': (i + 1),
-                'longitude': longitude + 0.001 * (5 - getRandomInt(1, 10)),
-                'latitude': latitude + 0.001 * (5 - getRandomInt(1, 10)),
-                'description': data[i].Description,
-                'altitude': 100.0,
-                'name': data[i].Name,
-                'obrtype': data[i].Type
-            })
+            var newPoi = {
+                id: (i + 1),
+                longitude: longitude + 0.001 * (5 - getRandomInt(1, 10)),
+                latitude: latitude + 0.001 * (5 - getRandomInt(1, 10)),
+                description: data[i].Description,
+                altitude: 100.0,
+                name: data[i].Name,
+               	obrtype: data[i].Type
+            };
+            
+            poiData.push(newPoi);
 
-            if (data[i].Type == 'Leak')
-                {
-                    alert('is leak');        
-                } else
-                    {
-                        alert(data[i].Type);
-                    }
         }
-
+        
         // inject POI data in JSON-format to JS
-        app.wikitudePlugin.callJavaScript("World.loadPoisFromJsonData(" + JSON.stringify(poiData) + ");");
+        //World.loadPoisFromJsonData(poiData)
+        app.wikitudePlugin.callJavaScript("World.loadPoisFromJsonData(" + JSON.stringify(poiData) + ");")
+        .then(function() {
+                alert("Out of this world!");
+        });
+        
 	});
 }
 

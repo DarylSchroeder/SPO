@@ -6,6 +6,7 @@ var apiKey = "Hro5ZCMacvvdbWuA";
 var el = new Everlive(apiKey);
 var app;
 var myPie;
+var poiData = [];
 
 
 //creates a chart on the canvas object.
@@ -79,7 +80,7 @@ function toggleTheme() {
 function loadARchitectWorld() {
     // check if the current device is able to launch ARchitect Worlds
     app.wikitudePlugin.isDeviceSupported(function () {
-        app.wikitudePlugin.setOnUrlInvokeCallback(app.onUrlInvoke);
+        app.wikitudePlugin.setOnUrlInvokeCallback(onUrlInvoke);
         // inject poi data using phonegap's GeoLocation API and inject data using World.loadPoisFromJsonData
         //if ( example.requiredExtension === "ObtainPoiDataFromApplicationModel" ) {
         navigator.geolocation.getCurrentPosition(onLocationUpdated, onLocationError);
@@ -90,7 +91,7 @@ function loadARchitectWorld() {
         }, function errorFn(error) {
             alert('Loading AR web view failed: ' + error);
         },
-            'www/world/RangedPoiCloud/index.html', ['geo'], {
+            'www/views/world.html', ['geo'], {
                 'camera_position': 'back'
             }
         );
@@ -154,7 +155,6 @@ function onUrlInvoke(url) {
         alert(url + "not handled");
     }
 };
-            // --- End Wikitude Plugin ---,
 
 (function () {
 

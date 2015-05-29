@@ -37,10 +37,11 @@ var World = {
     updatePlacemarkDistancesEveryXLocationUpdates: 10,
 
     // called to inject new POI data
-    loadPoisFromJsonData: function loadPoisFromJsonDataFn(poiData) {
+    loadPoisFromJsonData: function loadPoisFromJsonData(poiData) {
 
         // show radar & set click-listener
         PoiRadar.show();
+        
         $('#radarContainer').unbind('click');
         $("#radarContainer").click(PoiRadar.clickedRadar);
 
@@ -48,52 +49,64 @@ var World = {
         World.markerList = [];
 
         // start loading marker assets
-        World.markerDrawable_idle = new AR.ImageResource("assets/marker_idle.png");
-        World.markerDrawable_selected = new AR.ImageResource("assets/marker_selected.png");
-        World.markerDrawable_directionIndicator = new AR.ImageResource("assets/indi.png");
-        World.markerDrawable_yellow = new AR.ImageResource("assets/yellowicon.png");
-        World.markerDrawable_black = new AR.ImageResource("assets/blackicon.png");
-        World.markerDrawable_red = new AR.ImageResource("assets/redicon.png");
-
+        World.markerDrawable_idle = new AR.ImageResource("./Images/AR/marker_idle.png");
+        World.markerDrawable_selected = new AR.ImageResource("./Images/AR/marker_selected.png");
+        World.markerDrawable_directionIndicator = new AR.ImageResource("./Images/AR/indi.png");
+        // World.markerDrawable_yellow = new AR.ImageResource("assets/yellowicon.png");
+        // World.markerDrawable_black = new AR.ImageResource("assets/blackicon.png");
+        // World.markerDrawable_red = new AR.ImageResource("assets/redicon.png");
+        
+        //alert("Hello!");
         // loop through POI-information and create an AR.GeoObject (=Marker) per POI
         for (var currentPlaceNr = 0; currentPlaceNr < poiData.length; currentPlaceNr++) {
 
-            var typeicon = { return World.markerDrawable_red; };
+            //var typeicon = World.markerDrawable_red;
             //alert(typeicon);
+
+            var lat = parseFloat(poiData[currentPlaceNr].latitude);
+            var long = parseFloat(poiData[currentPlaceNr].longitude);
+            var alt = parseFloat(poiData[currentPlaceNr].altitude);
             
             var singlePoi = {
-                "id": poiData[currentPlaceNr].id,
-                "latitude": parseFloat(poiData[currentPlaceNr].latitude),
-                "longitude": parseFloat(poiData[currentPlaceNr].longitude),
-                "altitude": parseFloat(poiData[currentPlaceNr].altitude),
-                "title": poiData[currentPlaceNr].name,
-                "description": poiData[currentPlaceNr].description,
-                "obrtype": poiData[currentPlaceNr].obrtype,
-                "icon" : typeicon
+                id: poiData[currentPlaceNr].id,
+                latitude: lat,
+                longitude: long,
+                altitude: alt,
+                title: poiData[currentPlaceNr].name,
+                description: poiData[currentPlaceNr].description,
+                obrtype: poiData[currentPlaceNr].obrtype
+                //"icon" : typeicon
             };
-
+         
+         	//alert(JSON.stringify(singlePoi));
             World.markerList.push(new Marker(singlePoi));
         }
 
+        alert("Loop finished!");
+        
         // updates distance information of all placemarks
         World.updateDistanceToUserValues();
-
+        
+        alert("Update Distance to User Values!");
+        
         World.updateStatusMessage(currentPlaceNr + ' places loaded');
 
         // set distance slider to 100%
         $("#panel-distance-range").val(100);
         $("#panel-distance-range").slider("refresh");
+        
+        //alert("Out of this world!");
     },
 
     // sets/updates distances of all makers so they are available way faster than calling (time-consuming) distanceToUser() method all the time
-    updateDistanceToUserValues: function updateDistanceToUserValuesFn() {
+    updateDistanceToUserValues: function() {
         for (var i = 0; i < World.markerList.length; i++) {
             World.markerList[i].distanceToUser = World.markerList[i].markerObject.locations[0].distanceToUser();
         }
     },
 
     // updates status message shon in small "i"-button aligned bottom center
-    updateStatusMessage: function updateStatusMessageFn(message, isWarning) {
+    updateStatusMessage: function(message, isWarning) {
 
         var themeToUse = isWarning ? "e" : "c";
         var iconToUse = isWarning ? "alert" : "info";
@@ -108,7 +121,7 @@ var World = {
     },
 
     // location updates, fired every time you call architectView.setLocation() in native environment
-    locationChanged: function locationChangedFn(lat, lon, alt, acc) {
+    locationChanged: function(lat, lon, alt, acc) {
 
         // // store user's current location in World.userLocation, so you always know where user is
         // World.userLocation = {
@@ -133,7 +146,7 @@ var World = {
     },
 
     // fired when user pressed maker in cam
-    onMarkerSelected: function onMarkerSelectedFn(marker) {
+    onMarkerSelected: function(marker) {
         World.currentMarker = marker;
 
         // update panel values
@@ -158,12 +171,12 @@ var World = {
     },
 
     // screen was clicked but no geo-object was hit
-    onScreenClick: function onScreenClickFn() {
+    onScreenClick: function() {
         // you may handle clicks on empty AR space too
     },
 
     // returns distance in meters of placemark with maxdistance * 1.1
-    getMaxDistance: function getMaxDistanceFn() {
+    getMaxDistance: function() {
 
         // sort palces by distance so the first entry is the one with the maximum distance
         World.markerList.sort(World.sortByDistanceSortingDescending);
@@ -176,7 +189,7 @@ var World = {
     },
 
     // udpates values show in "range panel"
-    updateRangeValues: function updateRangeValuesFn() {
+    updateRangeValues: function() {
 
         // get current slider value (0..100);
         var slider_value = $("#panel-distance-range").val();
@@ -202,7 +215,7 @@ var World = {
     },
 
     // returns number of places with same or lower distance than given range
-    getNumberOfVisiblePlacesInRange: function getNumberOfVisiblePlacesInRangeFn(maxRangeMeters) {
+    getNumberOfVisiblePlacesInRange: function(maxRangeMeters) {
 
         // sort markers by distance
         World.markerList.sort(World.sortByDistanceSorting);
@@ -218,7 +231,7 @@ var World = {
         return World.markerList.length;
     },
 
-    handlePanelMovements: function handlePanelMovementsFn() {
+    handlePanelMovements: function() {
 
         $("#panel-distance").on("panelclose", function (event, ui) {
             $("#radarContainer").addClass("radarContainer_left");
@@ -234,7 +247,7 @@ var World = {
     },
 
     // display range slider
-    showRange: function showRangeFn() {
+    showRange: function() {
         if (World.markerList.length > 0) {
 
             // update labels on every range movement
@@ -256,7 +269,7 @@ var World = {
     },
 
     // request POI data
-    requestDataFromServer: function requestDataFromServerFn(lat, lon) {
+    requestDataFromServer: function (lat, lon) {
 
         // set helper var to avoid requesting places while loading
         World.isRequestingData = true;

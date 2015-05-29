@@ -16,15 +16,16 @@ function Marker(poiData) {
 
 
 
-    this.typeicon = new AR.ImageDrawable(poiData.icon, 2, {
-        zOrder: 2,
-        opacity: 1.0,
-        offsetX : -2,
-        onClick: null
-    });
-
+    // this.typeicon = new AR.ImageDrawable(poiData.icon, 2, {
+    //     zOrder: 2,
+    //     opacity: 1.0,
+    //     offsetX : -2,
+    //     onClick: null
+    // });
+    
     // create the AR.GeoLocation from the poi data
     var markerLocation = new AR.GeoLocation(poiData.latitude, poiData.longitude, poiData.altitude);
+    
 
     // create an AR.ImageDrawable for the marker in idle state
     this.markerDrawable_idle = new AR.ImageDrawable(World.markerDrawable_idle, 2.5, {
@@ -105,9 +106,10 @@ function Marker(poiData) {
     /*  
         Note that indicator and radar-drawables were added
     */
+    //alert("Hello! Hello!");
     this.markerObject = new AR.GeoObject(markerLocation, {
         drawables: {
-            cam: [this.markerDrawable_idle, this.markerDrawable_selected, this.titleLabel, this.descriptionLabel, this.typeicon],
+            cam: [this.markerDrawable_idle, this.markerDrawable_selected, this.titleLabel, this.descriptionLabel],
             //cam: [this.typeicon],
             indicator: this.directionIndicatorDrawable,
             radar: this.radardrawables

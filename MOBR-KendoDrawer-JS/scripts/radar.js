@@ -1,19 +1,18 @@
 	var PoiRadar = {
 
-		hide: function hideFn() {
+		hide: function() {
 			AR.radar.enabled = false;
 		},
 
-		show: function initFn() {
-
+		show: function() {
 			// the div defined in the index.htm
 			AR.radar.container = document.getElementById("radarContainer");
 
 			// set the back-ground image for the radar
-			AR.radar.background = new AR.ImageResource("assets/radar_bg.png");
+			AR.radar.background = new AR.ImageResource("./Images/AR/radar_bg.png");
 
 			// set the north-indicator image for the radar (not necessary if you don't want to display a north-indicator)
-			AR.radar.northIndicator.image = new AR.ImageResource("assets/radar_north.png");
+			AR.radar.northIndicator.image = new AR.ImageResource("./Images/AR/radar_north.png");
 
 			// center of north indicator and radar-points in the radar asset, usually center of radar is in the exact middle of the bakground, meaning 50% X and 50% Y axis --> 0.5 for centerX/centerY
 			AR.radar.centerX = 0.5;
@@ -23,20 +22,22 @@
 			AR.radar.northIndicator.radius = 0.0;
 
 			AR.radar.enabled = true;
+            
+            alert(JSON.stringify(AR.radar.container));
 		},
 
-		updatePosition: function updatePositionFn() {
+		updatePosition: function() {
 			if (AR.radar.enabled) {
 				AR.radar.notifyUpdateRadarPosition();
 			}
 		},
 
 		// you may define some custom action when user pressed radar, e.g. display distance, custom filtering etc.
-		clickedRadar: function clickedRadarFn() {
+		clickedRadar: function() {
 			alert("Radar Clicked");
 		},
 
-		setMaxDistance: function setMaxDistanceFn(maxDistanceMeters) {
+		setMaxDistance: function(maxDistanceMeters) {
 			AR.radar.maxDistance = maxDistanceMeters;
 		}
 	};
