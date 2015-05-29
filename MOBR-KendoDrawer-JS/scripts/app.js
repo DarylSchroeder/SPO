@@ -76,6 +76,29 @@ function toggleTheme() {
     currentTheme = newTheme;
 }
 
+function loadARchitectWorld() {
+    // check if the current device is able to launch ARchitect Worlds
+    app.wikitudePlugin.isDeviceSupported(function () {
+        app.wikitudePlugin.setOnUrlInvokeCallback(app.onUrlInvoke);
+        // inject poi data using phonegap's GeoLocation API and inject data using World.loadPoisFromJsonData
+        //if ( example.requiredExtension === "ObtainPoiDataFromApplicationModel" ) {
+        navigator.geolocation.getCurrentPosition(onLocationUpdated, onLocationError);
+        //}
+
+        app.wikitudePlugin.loadARchitectWorld(function successFn(loadedURL) {
+            /* Respond to successful world loading if you need to */
+        }, function errorFn(error) {
+            alert('Loading AR web view failed: ' + error);
+        },
+            'www/world/RangedPoiCloud/index.html', ['geo'], {
+                'camera_position': 'back'
+            }
+        );
+    }, function (errorMessage) {
+        alert(errorMessage);
+    }, ['geo']);
+}
+
 function launch_details_function(e) {
     SelectedObject = e.data;
     app.navigate("views/details.html", "slide");
@@ -115,7 +138,7 @@ function compareObjectsByName(a, b) {
             pbs: {
                 title: 'PBS',
 
-               
+
                 ds: new kendo.data.DataSource({
                     transport: {
                         read: {
@@ -165,7 +188,7 @@ function compareObjectsByName(a, b) {
 
                 launch_details: launch_details_function
             },
-           
+
             tags: {
                 ds: new kendo.data.DataSource({
                     type: "everlive",
@@ -189,9 +212,9 @@ function compareObjectsByName(a, b) {
 
     // this function is called by Cordova when the application is loaded by the device
     document.addEventListener('deviceready', function () {
-        
-        
-        
+
+
+
         // hide the splash screen as soon as the app is ready. otherwise
         // Cordova will wait 5 very long seconds to do it for you.
         navigator.splashscreen.hide();
@@ -262,11 +285,8 @@ function compareObjectsByName(a, b) {
             },
             // --- End Wikitude Plugin ---,
         });
+       
         app.wikitudePlugin = cordova.require("com.wikitude.phonegap.WikitudePlugin.WikitudePlugin");
-        
     }, false);
 
-}()
-
-
-    );
+}());
