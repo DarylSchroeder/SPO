@@ -18,24 +18,26 @@ function onLocationUpdated(position, reports) {
     //Severity
     //Type
 
+    alert(observation_reports);
+    alert("Hello! Hello! Hello!")
     // creates dummy poi-data around given lat/lon
     for (var i = 0; i < observation_reports.length; i++) {
         poiData.push({
             'id': (i + 1),
             'longitude': longitude + 0.001 * (5 - getRandomInt(1, 10)),
             'latitude': latitude + 0.001 * (5 - getRandomInt(1, 10)),
-            'description': observationReports[i].Description,
+            'description': observation_reports[i].Description,
             'altitude': 100.0,
-            'name': observationReports[i].Name,
-            'obrtype': observationReports[i].Type
+            'name': observation_reports[i].Name,
+            'obrtype': observation_reports[i].Type
         })
         
-        if (observationReports[i].Type == 'Leak')
+        if (observation_reports[i].Type == 'Leak')
             {
         		alert('is leak');        
             } else
                 {
-                    alert(observationReports[i].Type);
+                    alert(observation_reports[i].Type);
                 }
     }
 
